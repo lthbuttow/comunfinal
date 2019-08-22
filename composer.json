@@ -8,5 +8,8 @@
 			"Models\\":"Models/",
 			"Core\\":"Core/"
 		}
+	},
+	"require": {
+		"eftec/bladeone": "^3.31"
 	}
 }

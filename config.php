@@ -9,15 +9,17 @@ if(ENVIRONMENT == 'development') {
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
 } else {
-	define("BASE_URL", "http://localhost/psr/psr-4-mvc/");
-	$config['dbname'] = 'mvc_psr4';
+	define("BASE_URL", "https://projetocomun.com/");
+	$config['dbname'] = 'u781441844_mvc';
 	$config['host'] = 'localhost';
-	$config['dbuser'] = 'root';
-	$config['dbpass'] = 'root';
+	$config['dbuser'] = 'u781441844_lth';
+	$config['dbpass'] = 'QSdIaB4LPlJJ';
 }
+
 
 global $db;
 try {
+	// $db = new PDO('mysql:host=127.0.0.1;dbname=mvc_psr4', 'root', '');
 	$db = new PDO("mysql:dbname=".$config['dbname'].";host=".$config['host'], $config['dbuser'], $config['dbpass']);
 } catch(PDOException $e) {
 	echo "ERRO: ".$e->getMessage();

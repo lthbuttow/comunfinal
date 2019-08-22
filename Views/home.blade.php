@@ -16,25 +16,11 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="loginuser.php" id="scrollSuave">Área do Cliente</a>
-            </li>           
-            <?php
-            if (isset($_SESSION['admin']) && !empty($_SESSION['admin'])) {
-            ?>
-            <li class="nav-item">
-              <a class="nav-link" href="admin.php" id="scrollSuave">Painel Administrador</a>
-            </li>            
-            <li class="nav-item">
-              <a class="nav-link" href="logout.php" id="scrollSuave">Encerrar Sessão</a>
-            </li>            
-            <?php
-            } else{
-            ?>
+            </li>                    
+
             <li class="nav-item">
               <a class="nav-link" href="loginadmin.php" id="scrollSuave">Administrador</a>
             </li>
-            <?php
-            }
-            ?>
           </ul>
         </div>
       </div>
@@ -90,7 +76,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="message" class="h4 ">Mensagem</label>
+                <label for="message" class="h4">Mensagem</label>
                 <textarea id="message" class="form-control" rows="5" name="message" placeholder="Digite sua mensagem..." data-toggle="tooltip" data-placement="top" title="Seja direto, vai nos ajudar a tirar a sua dúvida!" required></textarea>
                 <div class="help-block with-errors"></div>
             </div>

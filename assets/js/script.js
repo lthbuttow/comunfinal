@@ -516,3 +516,34 @@ $(function () {
 				
 });
 
+
+
+
+
+// new
+function deleteUser(id) {
+
+	if(id != '') {
+
+		$.ajax({
+			type:'POST',
+			url:'ajax/delete',
+			data:{id:id},
+			success: function() {
+                linhas = $("#usersList>tbody>tr");
+                e = linhas.filter( function(i, elemento) {
+                    return elemento.cells[0].textContent == id; 
+                });
+                if (e){
+					e.fadeOut(400, function(){
+						this.remove();
+					});
+				}
+			}
+		});
+
+	}
+
+}
+
+
