@@ -5,7 +5,7 @@ use \Core\Controller;
 use \Models\Usuario;
 use \Models\UsuarioDAO;
 
-class HomeController extends Controller {
+class UsuarioController extends Controller {
 	
 	public function __construct() {
 		parent::__construct();
@@ -24,7 +24,7 @@ class HomeController extends Controller {
 
 		// $array['teste'] = 'blade muito louco';
  
-		$this->loadTemplate('home', $array);
+		$this->loadTemplate('userHome', $array);
 	}
 
 	public function addUser() {

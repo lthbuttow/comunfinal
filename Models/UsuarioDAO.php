@@ -2,8 +2,9 @@
 namespace Models;
 
 use \Core\Model;
+use \Model\Usuario;
 
-class Usuarios extends Model {
+class UsuarioDAO extends Model {
 	
 	public function isLogged() {
 
@@ -17,7 +18,7 @@ class Usuarios extends Model {
 	
 	public function fazerLogin($nome, $senha) {
 
-		$sql = $this->db->prepare("SELECT * FROM usuarios WHERE name = :nome AND senha = :senha");		
+		$sql = $this->db->prepare("SELECT * FROM usuarios WHERE nome = :nome AND senha = :senha");		
 		$sql->bindValue(":nome", $nome);
 		$sql->bindValue(":senha", $senha);
 		$sql->execute();

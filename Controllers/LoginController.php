@@ -2,7 +2,8 @@
 namespace Controllers;
 
 use \Core\Controller;
-use \Models\Usuarios;
+use \Models\Usuario;
+use \Models\UsuarioDAO;
 
 class LoginController extends Controller {
 
@@ -27,6 +28,29 @@ class LoginController extends Controller {
         
         $this->loadTemplate('login', $dados);
     }
+
+    public function loginUser() {
+        $dados = array();
+        
+        if(isset($_POST['nome']) && !empty($_POST['nome'])) {
+
+            $nome = $_POST['nome'];
+            $senha = $_POST['senha'];
+
+            $u = new UsuarioDAO();
+
+            if($u->fazerLogin($nome, $senha)) {
+                header('Location: http://localhost/projetocomun/usuario');
+            }
+            else {
+                echo "erro";
+                exit;
+            }
+        }
+
+        
+        $this->loadTemplate('home', $dados);
+    }    
 
 	public function logout() {
         unset($_SESSION['login']);

@@ -1,31 +1,3 @@
-<div id="page-top" role="header">
-	
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="#main">Comun.</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#about" id="scrollSuave">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#formulario" data-toggle="modal" data-target="#exampleModalCenter">Contato</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="loginuser.php" id="scrollSuave">Área do Cliente</a>
-            </li>                    
-
-            <li class="nav-item">
-              <a class="nav-link" href="loginadmin.php" id="scrollSuave">Administrador</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>   
-
     <header class="masthead text-center text-white d-flex" id="main">
       <div class="container my-auto">
         <div class="row">
@@ -122,7 +94,36 @@
           </div>
         </div>
       </div>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Login Usuário</button>
 </footer>
 <div class="container-fluid bg-dark text-center text-white">
   <p class="pb-2 mb-0 pt-2">Desenvolvido por Lucas Büttow <i class="fas fa-copyright"></i></p>
 </div>
+
+{{-- Login Admin --}}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Usuário Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="login/loginUser">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Nome/E-mail:</label>
+              <input type="text" name="nome" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="recipient-pass" class="col-form-label">Senha:</label>
+              <input type="text" name="senha" class="form-control" id="recipient-pass">
+            </div>
+            <button type="submit" class="btn btn-primary">Logar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

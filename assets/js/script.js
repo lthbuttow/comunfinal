@@ -385,34 +385,6 @@ $(function () {
 	});
 
 
-	// $('#envia_alter').bind('click', function (e) {
-	// 	e.preventDefault();
-
-	// 	var id = $('#id_user').val();
-	// 	var nome = $('#nome').val();
-	// 	var email = $('#email').val();
-	// 	var senha = $('#senha').val()
-
-	// 	$.ajax({
-	// 		type: "POST",
-	// 		url: "funcs/edita_user.php",
-	// 		data: {
-	// 			id_user: id,
-	// 			nome: nome,
-	// 			email: email,
-	// 			senha: senha
-	// 		},
-	// 		dataType: "json",
-	// 		success: function (resultado) {
-	// 			if (resultado.Status == 'OK') {
-	// 				$('#alert').html('<div class="alert alert-primary alert-dismissible fade show" role="alert"><strong>Sucesso! </strong>Salvamos seus dados!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-	// 			} else {
-	// 				$('#alert').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Erro! </strong>Não foi possível encontrar os dados, e tente novamente!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-	// 			}
-	// 		}
-	// 	});
-	// });	
-
 	// scroll do chat
 	console.log(window.location.pathname);
 	if (window.location.pathname == '/projetocomun/chat.php') {
