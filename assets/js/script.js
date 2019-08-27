@@ -103,11 +103,11 @@ $(function () {
 
 				$.ajax({
 					type: "POST",
-					url: "funcs/contato_enviar.php",
+					url: "http://localhost/projetocomun/ajax/enviarmensagem",
 					data: data,
 					dataType: "json",
 					success: function(resultado) {
-						if (resultado.Status == 'OK') {
+						if (resultado.status == 'OK') {
 							$('div #alert').html('<div class="alert alert-primary alert-dismissible fade show" role="alert"><strong>Sucesso! </strong>Sua mensagem foi enviada, retornaremos em breve!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 							
 							$('#email').val("");
@@ -121,6 +121,7 @@ $(function () {
 
 				return false;
 			} else {
+
 				$('div #alert').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Erro! </strong>Não foi possível enviar sua mensagem tente novamente!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 			}
 				
