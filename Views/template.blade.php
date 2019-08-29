@@ -27,7 +27,7 @@
 			</li>
 			<?php if( !isset($_SESSION['login']) ){ ?>
 			<li class="nav-item">
-				<a class="nav-link" href="loginuser.php" id="scrollSuave">Área do Cliente</a>
+				<a class="nav-link" data-toggle="modal" data-target="#userModal">Área do Cliente</a>
 			</li>                    
 
 			<li class="nav-item">

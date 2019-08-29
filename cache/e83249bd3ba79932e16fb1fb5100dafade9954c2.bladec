@@ -94,19 +94,18 @@
  </div>
  </div>
  </div>
- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Login Usuário</button>
 </footer>
 <div class="container-fluid bg-dark text-center text-white">
  <p class="pb-2 mb-0 pt-2">Desenvolvido por Lucas Büttow <i class="fas fa-copyright"></i></p>
 </div>
 
-<?php /* Login Admin */ ?>
+<?php /* Modal Login Cliente */ ?>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
  <div class="modal-dialog" role="document">
  <div class="modal-content">
  <div class="modal-header">
- <h5 class="modal-title" id="exampleModalLabel">Usuário Login</h5>
+ <h5 class="modal-title" id="exampleModalLabel">Acesse a área do Cliente</h5>
  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
  <span aria-hidden="true">&times;</span>
  </button>
@@ -121,7 +120,7 @@
  <label for="recipient-pass" class="col-form-label">Senha:</label>
  <input type="text" name="senha" class="form-control" id="recipient-pass">
  </div>
- <button type="submit" class="btn btn-primary">Logar</button>
+ <button type="submit" class="btn btn-primary">Entrar</button>
  </form>
  </div>
  </div>

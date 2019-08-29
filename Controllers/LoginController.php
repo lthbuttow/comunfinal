@@ -43,18 +43,19 @@ class LoginController extends Controller {
                 header('Location: http://localhost/projetocomun/usuario');
             }
             else {
-                echo "erro";
-                exit;
+                header('Location: http://localhost/projetocomun/');
             }
         }
-
-        
-        $this->loadTemplate('home', $dados);
+        else {
+            header('Location: http://localhost/projetocomun/'); 
+        }
+    
+        $this->loadTemplate('login', $dados);
     }    
 
 	public function logout() {
         unset($_SESSION['login']);
-        header('Location: http://localhost/mvc_psr4/');
+        header('Location: http://localhost/projetocomun/');
 
 	}    
 
