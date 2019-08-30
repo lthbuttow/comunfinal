@@ -50,7 +50,7 @@ class LoginController extends Controller {
             header('Location: http://localhost/projetocomun/'); 
         }
     
-        $this->loadTemplate('login', $dados);
+        // $this->loadTemplate('login', $dados);
     }    
 
 	public function logout() {

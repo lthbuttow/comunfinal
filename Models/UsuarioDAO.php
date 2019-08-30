@@ -27,6 +27,7 @@ class UsuarioDAO extends Model {
 			$sql = $sql->fetch();
 
 			$_SESSION['login'] = $sql['id'];
+			$_SESSION['nome'] = $sql['nome'];
 
 			return true;
 		} else {

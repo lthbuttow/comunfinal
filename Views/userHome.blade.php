@@ -33,7 +33,7 @@
         </div>
             <div id="alert">
             </div>
-        <h3 class="mb-4 nm_user">Olá <?php echo $_SESSION['nome_user'];  ?> !</h3>
+        <h3 class="mb-4 nm_user">Olá {{$_SESSION['nome']}} !</h3>
         <div class="row justify-content-center">
           <div class="col-md-4 col-sm-4 col-xl-2 mt-2">
             <a class="btn btn-md btn-outline-info btam" id="edita_user" role="button" data-toggle="tooltip" data-placement="top" title="atualize suas informações, como e-mail e nome" ><span class="fas fa-user-edit" style="margin-right:.2em;"></span>ALTERAR DADOS</a>
