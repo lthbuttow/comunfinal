@@ -2,18 +2,20 @@
 namespace Controllers;
 
 use \Core\Controller;
-use Models\UsuarioDAO;
-use \Models\Usuarios;
+use \Models\UsuarioDAO;
+use \Models\Usuario;
 use \Models\Mensagem;
 use \Models\MensagemDAO;
 
 class AjaxController extends Controller {
 
+    private $usuarioDAO;
     private $mensagemDAO;
 
 	public function __construct() {
 		parent::__construct();
 //        $u = new UsuarioDAO();
+        $this->usuarioDAO = new UsuarioDAO();
         $this->mensagemDAO = new MensagemDAO();
 //
 //        if(!$u->isLogged()) {
@@ -43,8 +45,61 @@ class AjaxController extends Controller {
 
         }
     }
-	
 
+	public function getDadosUser() {
+
+            $result = array();
+
+            $id_user = $_SESSION['login'];
+
+            $result = $this->usuarioDAO->getDadosEditarUser($id_user);
+
+            if($result != ''){
+                echo json_encode($result);
+        
+            } else{
+                $result = array('Status' => 'ERRO');
+                echo json_encode($result);
+            }     
+
+    } 
+    
+	public function salvarAlteracoesUser() {
+
+        $array = array();
+        
+            $user = new Usuario();
+
+            $id = $_POST['id_user'];
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $senha = $_POST['senha'];
+
+
+            
+            $user->setNome($nome);
+            $user->setId($id);
+            $user->setEmail($email); 
+            $user->setSenha($senha);
+
+            
+            $result = $this->usuarioDAO->editarUser($user);
+            // $result = $this->usuarioDAO->editarUser($id,$nome,$email,$senha);        
+            
+            if($result != '') {
+            
+            $array = array('Status' => 'OK' );
+            
+            } else {
+        
+            $array = array('Status' => 'ERRO' );
+
+            }
+            
+        echo json_encode($array);    
+
+}     
+	
 	public function delete() {
 		$array = array();
 

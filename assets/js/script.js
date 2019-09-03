@@ -271,17 +271,17 @@ $(function () {
 	$('#edita_user').bind('click', function (e) {
 		e.preventDefault();
 
-		var id = $('#id_user').val();
+		const id = $('#id_user').val();
 
 		$.ajax({
 			type: "POST",
-			url: "funcs/dados_editar_user.php",
-			data: {
-				id_user: id
-			},
+			url: "http://localhost/projetocomun/ajax/getDadosUser",
+			// data: {
+			// 	id_user: id
+			// },
 			dataType: "json",
 			success: function (resultado) {
-				if (resultado.Status == 'OK') {
+				if (resultado.id == id) {
 					$('#nome').val(resultado.nome);
 					$('#email').val(resultado.email);
 					$('#senha').val(resultado.senha);
@@ -366,7 +366,7 @@ $(function () {
 
 				$.ajax({
 					type: "POST",
-					url: "funcs/edita_user.php",
+					url: "http://localhost/projetocomun/ajax/salvarAlteracoesUser",
 					data: data,
 					dataType: "json",
 					success: function (resultado) {

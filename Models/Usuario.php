@@ -8,6 +8,7 @@ class Usuario extends Model {
     private $id;
     private $nome;
     private $email;
+    private $senha;
     private $admin;
 
     public function __construct() {
@@ -22,11 +23,14 @@ class Usuario extends Model {
     public function getEmail() {
         return $this->email;
     }
+    public function getSenha() {
+        return $this->senha;
+    }    
     public function getAdmin() {
         return $this->admin;
     }    
     public function setId($id) {
-        $this->$id = $id;
+        $this->id = $id;
     }
     public function setNome($nome) {
         $this->nome = $nome;
@@ -34,6 +38,9 @@ class Usuario extends Model {
     public function setEmail($email) {
         $this->email = $email;
     }
+    public function setSenha($senha) {
+        $this->senha = $senha;
+    }    
     public function setAdmin($admin) {
         $this->admin = $admin;
     }

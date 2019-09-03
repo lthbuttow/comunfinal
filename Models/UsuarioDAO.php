@@ -50,21 +50,36 @@ class UsuarioDAO extends Model {
 		}	
 
 	}
+
+	public function getDadosEditarUser($id_user){
+		$sql = "SELECT * FROM usuarios WHERE id = :id_user";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id_user', $id_user);
+		
+		if($sql->execute()){
+
+		$result = $sql->fetch();
+		
+		return $result;
+	} else{
+		return false;
+		}
+	}
 	
-	public function editarUser($id, $nome, $senha) {
+	public function editarUser($user){
+		$sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha WHERE id = :id_user";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id_user', $user->getId());
+		$sql->bindValue(':nome', $user->getNome());
+		$sql->bindValue(':email', $user->getEmail());
+		$sql->bindValue(':senha', $user->getSenha());
 
-		$sql = $this->db->prepare("UPDATE usuarios SET name = :nome, senha = :senha WHERE id = :id");
-		$sql->bindValue(":id", $id);		
-		$sql->bindValue(":nome", $nome);
-		$sql->bindValue(":senha", $senha);
+		if($sql->execute()){
 
-		if($sql->execute()) {
-
-			return true;
-		} else {
-			return false;
-		}	
-
+		return true;
+	} else{
+		return false;
+		}
 	}		
 	
 	public function delete($id) {
