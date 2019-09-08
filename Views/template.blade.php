@@ -31,7 +31,7 @@
 			</li>                    
 
 			<li class="nav-item">
-				<a class="nav-link" href="loginadmin.php" id="scrollSuave">Administrador</a>
+				<a class="nav-link" data-toggle="modal" data-target="#adminModal">Administrador</a>
 			</li>
 			<?php
 			}

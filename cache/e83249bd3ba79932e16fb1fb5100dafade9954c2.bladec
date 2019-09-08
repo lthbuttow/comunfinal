@@ -126,3 +126,31 @@
  </div>
  </div>
  </div>
+
+ <?php /* Modal Login Admin */ ?>
+
+<div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+ <div class="modal-content">
+ <div class="modal-header">
+ <h5 class="modal-title" id="exampleModalLabel">Acesse a área de Administrador</h5>
+ <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+ <span aria-hidden="true">&times;</span>
+ </button>
+ </div>
+ <div class="modal-body">
+ <form method="POST" action="login/loginAdmin">
+ <div class="form-group">
+ <label for="recipient-name" class="col-form-label">E-mail:</label>
+ <input type="email" name="email" class="form-control" id="recipient-name">
+ </div>
+ <div class="form-group">
+ <label for="recipient-pass" class="col-form-label">Senha:</label>
+ <input type="text" name="senha" class="form-control" id="recipient-pass">
+ </div>
+ <button type="submit" class="btn btn-primary">Entrar</button>
+ </form>
+ </div>
+ </div>
+ </div>
+</div>

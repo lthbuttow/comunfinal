@@ -13,19 +13,6 @@ class LoginController extends Controller {
     public function index() {
         $dados = array();
         
-        if(isset($_POST['nome']) && !empty($_POST['nome'])) {
-
-            $nome = addslashes($_POST['nome']);
-            $senha = $_POST['senha'];
-
-            $u = new Usuarios();
-
-            if($u->fazerLogin($nome, $senha)) {
-                header('Location: http://localhost/projetocomun/');
-            }
-        }
-
-        
         $this->loadTemplate('login', $dados);
     }
 
@@ -51,10 +38,34 @@ class LoginController extends Controller {
         }
     
         // $this->loadTemplate('login', $dados);
+    }
+    
+    public function loginAdmin() {
+        $dados = array();
+        
+        if(isset($_POST['email']) && !empty($_POST['email'])) {
+
+            $email = $_POST['email'];
+            $senha = $_POST['senha'];
+
+            $u = new UsuarioDAO();
+
+            if($u->fazerLoginAdmin($email, $senha)) {
+                header('Location: http://localhost/projetocomun/admin');
+            }
+            else {
+                header('Location: http://localhost/projetocomun/');
+            }
+        }
+        else {
+            header('Location: http://localhost/projetocomun/'); 
+        }
+    
+        // $this->loadTemplate('login', $dados);
     }    
 
 	public function logout() {
-        unset($_SESSION['login']);
+        session_destroy();
         header('Location: http://localhost/projetocomun/');
 
 	}    

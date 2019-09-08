@@ -15,6 +15,16 @@ class UsuarioDAO extends Model {
 		}
 
 	}
+
+	public function adminIsLogged() {
+
+		if(isset($_SESSION['admin']) && $_SESSION['admin'] == 'ativo') {
+			return true;
+		} else {
+			return false;
+		}
+
+	}	
 	
 	public function fazerLogin($nome, $senha) {
 
@@ -133,6 +143,27 @@ class UsuarioDAO extends Model {
 		}
 
 		return $array;
-	}	
+	}
+	
+	// Admin functions
+	public function fazerLoginAdmin($email, $senha) {
 
+		$sql = $this->db->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha AND admin = 1");		
+		$sql->bindValue(":email", $email);
+		$sql->bindValue(":senha", $senha);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			$sql = $sql->fetch();
+
+			$_SESSION['login'] = $sql['id'];
+			$_SESSION['nome'] = $sql['nome'];
+			$_SESSION['admin'] = 'ativo';
+
+			return true;
+		} else {
+			return false;
+		}	
+
+	}
 }
