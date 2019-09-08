@@ -80,7 +80,19 @@ class UsuarioDAO extends Model {
 	} else{
 		return false;
 		}
-	}		
+	}
+	
+	public function getSenhaPadrao($id_user){
+		$sql = $this->db->prepare("SELECT senha FROM usuarios WHERE senha = '12345' AND admin ='0' AND id = :id_user");
+		$sql->bindValue(":id_user", $id_user);
+	
+		if($sql->execute()){
+		
+		return true;
+	} else{
+		return false;
+		}
+	}	
 	
 	public function delete($id) {
 

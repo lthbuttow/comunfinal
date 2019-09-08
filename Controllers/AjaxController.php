@@ -14,13 +14,13 @@ class AjaxController extends Controller {
 
 	public function __construct() {
 		parent::__construct();
-//        $u = new UsuarioDAO();
+        $u = new UsuarioDAO();
         $this->usuarioDAO = new UsuarioDAO();
         $this->mensagemDAO = new MensagemDAO();
-//
-//        if(!$u->isLogged()) {
-//        	header('Location: http://localhost/projetocomun/');
-//        }
+
+    //      if(!$u->isLogged()) {
+    //     	header('Location: http://localhost/projetocomun/');
+    //    }
 	}
 
 	public function enviarMensagem() {
@@ -83,8 +83,7 @@ class AjaxController extends Controller {
             $user->setSenha($senha);
 
             
-            $result = $this->usuarioDAO->editarUser($user);
-            // $result = $this->usuarioDAO->editarUser($id,$nome,$email,$senha);        
+            $result = $this->usuarioDAO->editarUser($user);      
             
             if($result != '') {
             

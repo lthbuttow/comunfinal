@@ -21,7 +21,7 @@ class LoginController extends Controller {
             $u = new Usuarios();
 
             if($u->fazerLogin($nome, $senha)) {
-                header('Location: http://localhost/mvc_psr4/');
+                header('Location: http://localhost/projetocomun/');
             }
         }
 

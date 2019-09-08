@@ -9,20 +9,27 @@ class UsuarioController extends Controller {
 	
 	public function __construct() {
 		parent::__construct();
-        $u = new Usuario();
+        $u = new UsuarioDAO();
 
-        // if(!$u->isLogged()) {
-        // 	header('Location: http://localhost/mvc_psr4/login');
-        // }
+        if(!$u->isLogged()) {
+        	header('Location: http://localhost/projetocomun/login');
+        }
 	}
 	
 	public function index() {
-		$array = array();
+        $array = array();
+        
+        $idUser = $_SESSION['login'];
 
-		// $usuarios = new Usuarios();
-		// $array['lista'] = $usuarios->getAll();
+        $user = new UsuarioDAO();
 
-		// $array['teste'] = 'blade muito louco';
+        if ($user->getSenhaPadrao($idUser)) {
+            $array['situacaoSenha'] = 'padrao';
+        } else {
+            $array['situacaoSenha'] = 'alterada';
+        }
+        
+        
  
 		$this->loadTemplate('userHome', $array);
 	}
@@ -46,35 +53,32 @@ class UsuarioController extends Controller {
         $this->loadTemplate('AddUser', $dados);
 	}
 
-	public function editUser($id) {
-        $dados = array();
+	// public function editUser($id) {
+    //     $dados = array();
         
-        if($id != '') {
-			$u = new Usuario();
+    //     if($id != '') {
+	// 		$u = new Usuario();
 
-			$data = $u->getUser($id);
+	// 		$data = $u->getUser($id);
 
-			if($data != ''){
-                $dados['nome'] = $data['name'];
-                $dados['senha'] = $data['senha'];
-			}
+	// 		if($data != ''){
+    //             $dados['nome'] = $data['name'];
+    //             $dados['senha'] = $data['senha'];
+	// 		}
 
-            if(isset($_POST['nome']) && !empty($_POST['senha'])) {
-                $newNome = $_POST['nome'];
-                $newSenha = $_POST['senha'];
+    //         if(isset($_POST['nome']) && !empty($_POST['senha'])) {
+    //             $newNome = $_POST['nome'];
+    //             $newSenha = $_POST['senha'];
 
-                if($u->editarUser($id, $newNome, $newSenha)) {
-                    header('Location: http://localhost/mvc_psr4/');
-                }
-            }
+    //             if($u->editarUser($id, $newNome, $newSenha)) {
+    //                 header('Location: http://localhost/mvc_psr4/');
+    //             }
+    //         }
 
-            // if($u->inserirUser($nome, $senha)) {
-            //     header('Location: http://localhost/mvc_psr4/');
-            // }
-        }
+    //     }
 
         
-        $this->loadTemplate('editUser', $dados);
-	}
+    //     $this->loadTemplate('editUser', $dados);
+	// }
 
 }

@@ -15,20 +15,15 @@
  <div class="container my-auto">
  <div class="row">
  <div class="col-md-6 mx-auto">
- <?php
- //   $html='<div class="alert alert-warning" role="alert">
- //   Atenção! Sua senha padrão é 12345, recomendamos a troca da senha para maior segurança!
- //   </div>';
- 
- //   if($res['senha'] == md5('12345')){
- //     echo $html;
- //   }
- 
- //   if (isset($_SESSION['mensagem'])) {
- //     echo $_SESSION['mensagem'];
- //     unset($_SESSION['mensagem']);
- //   }
- ?>            
+
+ <?php if(isset ($situacaoSenha) && $situacaoSenha == 'padrao'): ?> 
+
+ <div class="alert alert-warning" role="alert">
+ Atenção! Sua senha padrão é 12345, recomendamos a troca da senha para maior segurança!
+ </div>
+
+ <?php endif; ?>
+
  </div>
  </div>
  <div id="alert">
