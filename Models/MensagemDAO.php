@@ -21,4 +21,13 @@ class MensagemDAO extends Model {
         }
 
     }
+
+    public function getStatusMsg(){
+
+		$sql = $this->db->query("SELECT * FROM mensagens WHERE checked = '0'");
+		$sql->execute();
+
+		$resultado = $sql->rowCount();
+		return $resultado;
+    }
 }

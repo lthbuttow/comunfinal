@@ -4,6 +4,7 @@ namespace Controllers;
 use \Core\Controller;
 use \Models\Usuario;
 use \Models\UsuarioDAO;
+use \Models\MensagemDAO;
 
 class AdminController extends Controller {
 
@@ -21,7 +22,11 @@ class AdminController extends Controller {
 	public function index() {
         $array = array();
         
-        $idUser = $_SESSION['login'];                
+        $msg = new MensagemDAO();
+
+        $idUser = $_SESSION['login'];
+        
+        $array['nrMsgs'] = $msg->getStatusMsg();
  
 		$this->loadTemplate('adminHome', $array);
 	}

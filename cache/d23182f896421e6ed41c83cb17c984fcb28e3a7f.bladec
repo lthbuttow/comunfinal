@@ -17,9 +17,7 @@
  <h4 class="mb-3">Menu de Usuários</h4></a>
  <?php 
  // $qtd_arquivos = $arquivo->getStatus();
- // $qtd_mensagem = $arquivo->getStatusMsg();
  $qtd_arquivos = 3;
- $qtd_mensagem = 2;
  ?>
  <p class="text-muted mb-0">Atualmente você tem <?php echo $qtd_arquivos; ?> arquivos que ainda não foram visualizados</p>
  </div>
@@ -28,7 +26,7 @@
  <div class="service-box mt-5 mx-auto">
  <a href="mensagens.php"><i class="fas fa-4x fa-envelope text-orange mb-3 sr-icon-4"></i>
  <h4 class="mb-3">Mensagens</h4></a>
- <p class="text-muted mb-0">Você tem <?php echo $qtd_mensagem; ?> mensagens a serem visualizadas</p>
+ <p class="text-muted mb-0">Você tem <?php echo static::e($nrMsgs); ?> mensagens a serem visualizadas</p>
  </div>
  </div>
  </div>
