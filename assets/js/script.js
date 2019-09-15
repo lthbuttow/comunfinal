@@ -43,7 +43,7 @@ $(function () {
 
 		$('html, body').animate({
 			scrollTop: targetOffset - 100
-		}, 500);
+		}, 100);
 	});
 
 	$('nav a[href^="#"]').on('click', function (e) {
@@ -53,7 +53,7 @@ $(function () {
 
 		$('html, body').animate({
 			scrollTop: targetOffset - 100
-		}, 500);
+		}, 100);
 	});
 
 	// mudança de cor de fundo do form
@@ -444,21 +444,21 @@ $(function () {
 
 	// função para checar mensagens visualizadas
 	
-	if (window.location.pathname == '/projetocomun/mensagens.php') {
+	// if (window.location.pathname == '/projetocomun/mensagens.php') {
 
-		$.ajax({
-			type: "POST",
-			url: "funcs/atualiza_status.php",
-			dataType: "json",
-			success: function (resultado) {
-				if (resultado.Status == 'OK') {
-					console.log("Status Atualizado");
-				} else {
-					console.log("Erro ao atualizar status");
-				}
-			}
-		});
-	}
+	// 	$.ajax({
+	// 		type: "POST",
+	// 		url: "funcs/atualiza_status.php",
+	// 		dataType: "json",
+	// 		success: function (resultado) {
+	// 			if (resultado.Status == 'OK') {
+	// 				console.log("Status Atualizado");
+	// 			} else {
+	// 				console.log("Erro ao atualizar status");
+	// 			}
+	// 		}
+	// 	});
+	// }
 
 	// função para checar arquivos visualizados
 	

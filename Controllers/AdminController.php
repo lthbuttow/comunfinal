@@ -29,7 +29,19 @@ class AdminController extends Controller {
         $array['nrMsgs'] = $msg->getStatusMsg();
  
 		$this->loadTemplate('adminHome', $array);
-	}
+    }
+   
+    
+	public function mensagem() {
+        $array = array();
+        
+        $msg = new MensagemDAO();
+
+        
+        $array['msgs'] = $msg->getAll();
+ 
+		$this->loadTemplate('msg', $array);
+    }
 
 	public function addUser() {
         $dados = array();

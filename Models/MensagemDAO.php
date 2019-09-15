@@ -6,6 +6,15 @@ use Models\Mensagem;
 
 class MensagemDAO extends Model {
 
+    public function getAll(){
+
+        $sql = $this->db->query("SELECT * FROM mensagens");
+        $sql->execute();
+
+        $resultado = $sql->fetchAll(\PDO::FETCH_OBJ);
+        return $resultado;
+    }
+
     public function enviarMensagem($mensagem) {
 
         $sql = $this->db->prepare("INSERT INTO mensagens (email, mensagem) VALUES (:email, :mensagem)");
