@@ -12,7 +12,7 @@
  </div> -->
  <div class="col-lg-6 col-md-6 text-center">
  <div class="service-box mt-5 mx-auto">
- <a href="menu_users.php"><i class="fas fa-4x fa-id-card text-orange mb-3 sr-icon-3"></i>
+ <a href="http://localhost/projetocomun/admin/listagemUsuarios"><i class="fas fa-4x fa-id-card text-orange mb-3 sr-icon-3"></i>
  <h4 class="mb-3">Menu de Usuários</h4></a>
  <?php 
  // $qtd_arquivos = $arquivo->getStatus();

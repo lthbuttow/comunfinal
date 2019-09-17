@@ -39,4 +39,13 @@ class MensagemDAO extends Model {
 		$resultado = $sql->rowCount();
 		return $resultado;
     }
+
+    public function atualizaStatus(){
+        $sql = $this->db->query("UPDATE mensagens SET checked = '1' WHERE checked = '0'");
+		if($sql->execute()){            
+            return true;
+        } else{
+            return false;
+            }  
+    }
 }

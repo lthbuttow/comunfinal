@@ -97,7 +97,23 @@ class AjaxController extends Controller {
             
         echo json_encode($array);    
 
-}     
+}
+
+    public function atualizarStatusMensagens() {
+       $result = $this->mensagemDAO->atualizaStatus();
+	
+	
+	if ($result === true) {
+	
+	$array = array('Status' => 'OK' );
+	
+	} else {
+
+	$array = array('Status' => 'ERRO' );
+	}
+
+	echo json_encode($array);
+    }
 	
 	public function delete() {
 		$array = array();

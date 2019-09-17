@@ -43,6 +43,28 @@ class AdminController extends Controller {
 		$this->loadTemplate('msg', $array);
     }
 
+    public function listagemUsuarios() {
+        $array = array();
+
+        $total_users = $this->user->getTotalUsuarios();
+        $total_users = $total_users['contagem'];
+        $qt_por_pag = 5;
+        $paginas = $total_users / $qt_por_pag;
+        
+        $pg = 1;
+        if(isset($_GET['p']) && !empty($_GET['p'])){
+          $pg = $_GET['p'];
+        }
+
+        $p = ($pg-1) * $qt_por_pag;
+
+        $array['listagem'] = $this->user->getUsuariosPagination($p,$qt_por_pag);
+        $_SESSION['p'] = $p;
+        $_SESSION['qt_por_pag'] = $qt_por_pag;        
+
+        $this->loadTemplate('menuUsers', $array);
+    }
+
 	public function addUser() {
         $dados = array();
         

@@ -444,21 +444,21 @@ $(function () {
 
 	// função para checar mensagens visualizadas
 	
-	// if (window.location.pathname == '/projetocomun/mensagens.php') {
+	if (window.location.pathname == '/projetocomun/admin/mensagem') {
 
-	// 	$.ajax({
-	// 		type: "POST",
-	// 		url: "funcs/atualiza_status.php",
-	// 		dataType: "json",
-	// 		success: function (resultado) {
-	// 			if (resultado.Status == 'OK') {
-	// 				console.log("Status Atualizado");
-	// 			} else {
-	// 				console.log("Erro ao atualizar status");
-	// 			}
-	// 		}
-	// 	});
-	// }
+		$.ajax({
+			type: "POST",
+			url: "http://localhost/projetocomun/ajax/atualizarStatusMensagens",
+			dataType: "json",
+			success: function (resultado) {
+				if (resultado.Status == 'OK') {
+					console.log("Status Atualizado");
+				} else {
+					console.log("Erro ao atualizar status");
+				}
+			}
+		});
+	}
 
 	// função para checar arquivos visualizados
 	
