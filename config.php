@@ -9,7 +9,7 @@ if(ENVIRONMENT == 'development') {
     $config['dbuser'] = 'root';
     $config['dbpass'] = '';
 } else {
-    define("BASE_URL", "https://projetocomun.com/");
+    define("BASE_URL", "https://www.projetocomun.com/");
     $config['dbname'] = 'u781441844_mvc';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'u781441844_lth';

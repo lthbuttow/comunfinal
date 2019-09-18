@@ -2,15 +2,6 @@
 <!-- topo -->
 <body>
 <div id="page-top" role="header">
-
-      <?php
-    //   require 'classes/admin.class.php';
-
-    //   $id_user = $_SESSION['id_user'];
-    //   $admin = NEW Admin(); 
-    //   $result = $admin->getAdmin();
-    //   $res = $admin->getSenhaPadrao($id_user);
-    //   ?>
     <article class="mastheads article text-center text-white d-flex">
       <div class="container my-auto">
         <div class="row">

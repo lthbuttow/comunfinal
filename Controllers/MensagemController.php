@@ -17,7 +17,7 @@ class MensagemController extends Controller {
         $this->user = new UsuarioDAO();
 
         if(!$this->user->adminIsLogged()) {
-        	header('Location: http://localhost/projetocomun');
+        	header('Location: https://www.projetocomun.com');
         }
 	}    
     

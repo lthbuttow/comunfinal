@@ -27,14 +27,14 @@ class LoginController extends Controller {
             $u = new UsuarioDAO();
 
             if($u->fazerLogin($nome, $senha)) {
-                header('Location: http://localhost/projetocomun/usuario');
+                header('Location: https://www.projetocomun.com/usuario');
             }
             else {
-                header('Location: http://localhost/projetocomun/');
+                header('Location: https://www.projetocomun.com/');
             }
         }
         else {
-            header('Location: http://localhost/projetocomun/'); 
+            header('Location: https://www.projetocomun.com/'); 
         }
     
         // $this->loadTemplate('login', $dados);
@@ -51,14 +51,14 @@ class LoginController extends Controller {
             $u = new UsuarioDAO();
 
             if($u->fazerLoginAdmin($email, $senha)) {
-                header('Location: http://localhost/projetocomun/admin');
+                header('Location: https://www.projetocomun.com/admin');
             }
             else {
-                header('Location: http://localhost/projetocomun/');
+                header('Location: https://www.projetocomun.com/');
             }
         }
         else {
-            header('Location: http://localhost/projetocomun/'); 
+            header('Location: https://www.projetocomun.com/'); 
         }
     
         // $this->loadTemplate('login', $dados);
@@ -66,7 +66,7 @@ class LoginController extends Controller {
 
 	public function logout() {
         session_destroy();
-        header('Location: http://localhost/projetocomun/');
+        header('Location: https://www.projetocomun.com');
 
 	}    
 
