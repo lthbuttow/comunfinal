@@ -13,7 +13,7 @@ if(ENVIRONMENT == 'development') {
     $config['dbname'] = 'u781441844_mvc';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'u781441844_lth';
-    $config['dbpass'] = 'QSdIaB4LPlJJ';
+    $config['dbpass'] = ']u@w8/oM';
 }
 
 
