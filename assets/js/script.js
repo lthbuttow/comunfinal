@@ -103,7 +103,7 @@ $(function () {
 
 				$.ajax({
 					type: "POST",
-					url: "http://localhost/projetocomun/ajax/enviarmensagem",
+					url: "https://projetocomun.com/ajax/enviarmensagem",
 					data: data,
 					dataType: "json",
 					success: function(resultado) {
@@ -275,7 +275,7 @@ $(function () {
 
 		$.ajax({
 			type: "POST",
-			url: "http://localhost/projetocomun/ajax/getDadosUser",
+			url: "https://projetocomun.com/ajax/getDadosUser",
 			// data: {
 			// 	id_user: id
 			// },
@@ -366,7 +366,7 @@ $(function () {
 
 				$.ajax({
 					type: "POST",
-					url: "http://localhost/projetocomun/ajax/salvarAlteracoesUser",
+					url: "https://projetocomun.com/ajax/salvarAlteracoesUser",
 					data: data,
 					dataType: "json",
 					success: function (resultado) {
@@ -448,7 +448,7 @@ $(function () {
 
 		$.ajax({
 			type: "POST",
-			url: "http://localhost/projetocomun/ajax/atualizarStatusMensagens",
+			url: "https://projetocomun.com/ajax/atualizarStatusMensagens",
 			dataType: "json",
 			success: function (resultado) {
 				if (resultado.Status == 'OK') {
