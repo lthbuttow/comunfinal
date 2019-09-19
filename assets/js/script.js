@@ -81,7 +81,7 @@ $(function () {
 				message: {
 					required: true,
 					minlength: 5,
-					maxlength: 15
+					maxlength: 150
 				}
 			},
 			messages: {
@@ -92,7 +92,7 @@ $(function () {
 				message: {
 					required: "Favor preencher este campo",
 					minlength: "Digite uma mensagem de no mínimo 5 caracteres",
-					maxlength: "Digite uma mensagem de no máximo 300 caracteres"
+					maxlength: "Digite uma mensagem de no máximo 150 caracteres"
 				}
 			}
 		});
