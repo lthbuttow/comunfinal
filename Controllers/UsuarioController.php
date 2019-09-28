@@ -12,7 +12,7 @@ class UsuarioController extends Controller {
         $u = new UsuarioDAO();
 
         if(!$u->isLogged()) {
-        	header('Location: http://localhost/projetocomun/login');
+        	header('Location: http://localhost:8888/projetocomun/login');
         }
 	}
 	

@@ -81,7 +81,7 @@ $(function () {
 				message: {
 					required: true,
 					minlength: 5,
-					maxlength: 15
+					maxlength: 150
 				}
 			},
 			messages: {
@@ -92,7 +92,7 @@ $(function () {
 				message: {
 					required: "Favor preencher este campo",
 					minlength: "Digite uma mensagem de no mínimo 5 caracteres",
-					maxlength: "Digite uma mensagem de no máximo 300 caracteres"
+					maxlength: "Digite uma mensagem de no máximo 150 caracteres"
 				}
 			}
 		});
@@ -103,7 +103,7 @@ $(function () {
 
 				$.ajax({
 					type: "POST",
-					url: "http://localhost/projetocomun/ajax/enviarmensagem",
+					url: "http://localhost:8888/projetocomun/ajax/enviarmensagem",
 					data: data,
 					dataType: "json",
 					success: function(resultado) {
@@ -275,7 +275,7 @@ $(function () {
 
 		$.ajax({
 			type: "POST",
-			url: "http://localhost/projetocomun/ajax/getDadosUser",
+			url: "http://localhost:8888/projetocomun/ajax/getDadosUser",
 			// data: {
 			// 	id_user: id
 			// },
@@ -366,7 +366,7 @@ $(function () {
 
 				$.ajax({
 					type: "POST",
-					url: "http://localhost/projetocomun/ajax/salvarAlteracoesUser",
+					url: "http://localhost:8888/projetocomun/ajax/salvarAlteracoesUser",
 					data: data,
 					dataType: "json",
 					success: function (resultado) {
@@ -448,7 +448,7 @@ $(function () {
 
 		$.ajax({
 			type: "POST",
-			url: "http://localhost/projetocomun/ajax/atualizarStatusMensagens",
+			url: "http://localhost:8888/projetocomun/ajax/atualizarStatusMensagens",
 			dataType: "json",
 			success: function (resultado) {
 				if (resultado.Status == 'OK') {
