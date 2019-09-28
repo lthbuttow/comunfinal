@@ -7,7 +7,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<<<<<<< HEAD
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+=======
+	<link rel="stylesheet" type="text/css" href="http://localhost:8888/projetocomun/assets/css/style.css">
+>>>>>>> development
 </head>
 <body>
 
@@ -31,6 +35,7 @@
 					<a class="nav-link" data-toggle="modal" data-target="#userModal">Área do Cliente</a>
 				</li>                    
 
+<<<<<<< HEAD
 				<li class="nav-item">
 					<a class="nav-link" data-toggle="modal" data-target="#adminModal">Administrador</a>
 				</li>
@@ -46,6 +51,23 @@
 				?>
 				</ul>
 			</div>
+=======
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="modal" data-target="#adminModal">Administrador</a>
+			</li>
+			<?php
+			}
+			else {
+			?>
+			<li class="nav-item">
+				<a class="nav-link" href="http://localhost:8888/projetocomun/login/logout" id="scrollSuave">Logout</a>
+			</li>
+			<?php	
+			} 
+			?>
+			</ul>
+		</div>
+>>>>>>> development
 		</div>
 	</nav>   	
 
@@ -57,6 +79,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript" src="../assets/js/script.js"></script>	
+=======
+<script type="text/javascript" src="http://localhost:8888/projetocomun/assets/js/script.js"></script>	
+>>>>>>> development
 </body>
 </html>

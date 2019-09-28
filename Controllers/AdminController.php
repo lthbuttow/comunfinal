@@ -15,7 +15,11 @@ class AdminController extends Controller {
         $this->user = new UsuarioDAO();
 
         if(!$this->user->adminIsLogged()) {
+<<<<<<< HEAD
         	header('Location: https://projetocomun.com');
+=======
+        	header('Location: http://localhost:8888/projetocomun');
+>>>>>>> development
         }
 	}
 	
