@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="http://localhost/projetocomun/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="http://localhost:8888/projetocomun/assets/css/style.css">
 </head>
 <body>
 
@@ -39,7 +39,7 @@
 			else {
 			?>
 			<li class="nav-item">
-				<a class="nav-link" href="http://localhost/projetocomun/login/logout" id="scrollSuave">Logout</a>
+				<a class="nav-link" href="http://localhost:8888/projetocomun/login/logout" id="scrollSuave">Logout</a>
 			</li>
 			<?php	
 			} 
@@ -57,6 +57,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js"></script>
-<script type="text/javascript" src="http://localhost/projetocomun/assets/js/script.js"></script>	
+<script type="text/javascript" src="http://localhost:8888/projetocomun/assets/js/script.js"></script>	
 </body>
 </html>
