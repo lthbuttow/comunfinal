@@ -444,7 +444,7 @@ $(function () {
 
 	// função para checar mensagens visualizadas
 	
-	if (window.location.pathname == 'https://projetocomun.com/admin/mensagem') {
+	if (window.location.pathname == '/admin/mensagem') {
 
 		$.ajax({
 			type: "POST",

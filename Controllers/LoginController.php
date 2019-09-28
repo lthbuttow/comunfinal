@@ -58,7 +58,7 @@ class LoginController extends Controller {
             }
         }
         else {
-            header('Location: https://projetocomun.com/usuario'); 
+            header('Location: https://projetocomun.com/'); 
         }
     
         // $this->loadTemplate('login', $dados);
@@ -66,7 +66,7 @@ class LoginController extends Controller {
 
 	public function logout() {
         session_destroy();
-        header('Location: https://projetocomun.com/usuario');
+        header('Location: https://projetocomun.com/');
 
 	}    
 
