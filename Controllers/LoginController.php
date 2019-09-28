@@ -27,7 +27,6 @@ class LoginController extends Controller {
             $u = new UsuarioDAO();
 
             if($u->fazerLogin($nome, $senha)) {
-<<<<<<< HEAD
                 header('Location: https://projetocomun.com/usuario');
             }
             else {
@@ -36,16 +35,6 @@ class LoginController extends Controller {
         }
         else {
             header('Location: https://projetocomun.com/'); 
-=======
-                header('Location: http://localhost:8888/projetocomun/usuario');
-            }
-            else {
-                header('Location: http://localhost:8888/projetocomun/');
-            }
-        }
-        else {
-            header('Location: http://localhost:8888/projetocomun/'); 
->>>>>>> development
         }
     
         // $this->loadTemplate('login', $dados);
@@ -62,7 +51,6 @@ class LoginController extends Controller {
             $u = new UsuarioDAO();
 
             if($u->fazerLoginAdmin($email, $senha)) {
-<<<<<<< HEAD
                 header('Location: https://projetocomun.com/admin');
             }
             else {
@@ -70,17 +58,7 @@ class LoginController extends Controller {
             }
         }
         else {
-            header('Location: https://projetocomun.com/'); 
-=======
-                header('Location: http://localhost:8888/projetocomun/admin');
-            }
-            else {
-                header('Location: http://localhost:8888/projetocomun/');
-            }
-        }
-        else {
-            header('Location: http://localhost:8888/projetocomun/'); 
->>>>>>> development
+            header('Location: https://projetocomun.com/usuario'); 
         }
     
         // $this->loadTemplate('login', $dados);
@@ -88,11 +66,7 @@ class LoginController extends Controller {
 
 	public function logout() {
         session_destroy();
-<<<<<<< HEAD
-        header('Location: https://projetocomun.com');
-=======
-        header('Location: http://localhost:8888/projetocomun/');
->>>>>>> development
+        header('Location: https://projetocomun.com/usuario');
 
 	}    
 

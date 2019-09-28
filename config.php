@@ -3,19 +3,11 @@ require 'environment.php';
 
 $config = array();
 if(ENVIRONMENT == 'development') {
-<<<<<<< HEAD
-    define("BASE_URL", "http://localhost/projetocomun/");
-    $config['dbname'] = 'projeto_comun';
-    $config['host'] = 'localhost';
-    $config['dbuser'] = 'root';
-    $config['dbpass'] = '';
-=======
     define("BASE_URL", "http://localhost:8888/projetocomun/");
     $config['dbname'] = 'projeto_comun';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'root';
     $config['dbpass'] = 'root';
->>>>>>> development
 } else {
     define("BASE_URL", "https://www.projetocomun.com/");
     $config['dbname'] = 'u781441844_mvc';
