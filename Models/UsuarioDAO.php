@@ -183,7 +183,7 @@ class UsuarioDAO extends Model {
 	}	
 
 	public function getTotalUsuarios(){
-		$sql = "SELECT COUNT (id) as contagem FROM usuarios WHERE admin ='0'";
+		$sql = "SELECT COUNT(id) AS contagem FROM usuarios WHERE admin =0";
 		$sql = $this->db->query($sql);
 	
 		if($sql){

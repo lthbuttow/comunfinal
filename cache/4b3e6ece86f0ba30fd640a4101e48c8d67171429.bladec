@@ -72,33 +72,21 @@
  <td><a class="btn btn-primary acessa">Arquivos</a></td>
  </tr>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>      
- <?php 
- // foreach($result as $dados){
- // $html = '
- // <tr>
- // <td>'.$dados['nome'].'</td>
- // <td>'.$dados['email'].'</td>
- // <td><a class="btn btn-secondary" id="edita_adm" href="edita_users.php?id_user='. $dados['id_user'].'">Editar</a></td>
- // <td><a class="btn btn-danger excluir" href="funcs/exclui_user.php?id_user='. $dados['id_user'].'">Excluir</a></td>
- // <td><a class="btn btn-warning" href="chat.php?id_para='. $dados['id_user'].'">Iniciar</a></td>                   
- // <td><a class="btn btn-primary acessa" href="caixa_arquivos_admin.php?id_user='.$dados['id_user'].'"">Arquivos</a></td>
- // </tr>';
- // echo $html;
- // }
- ?>
  </tbody>
  </table>
  </div> 
  </div>
- <?php
- // echo '<ul class="pagination justify-content-center mb-4>';
- // for($q=0; $q<$paginas; $q++){
- // $paginacao = '  
- //      <li class="page-item"><a class="page-link" href="menu_users.php?p='.($q+1).'">'.($q+1).'</a></li>';
- // echo $paginacao;
- // }
- // echo '</ul>';
- ?>                      
+ 
+ <ul class="pagination justify-content-center mb-4">
+
+ <?php for($q=0; $q<$paginas; $q++): ?>
+ 
+ <li class="page-item"><a class="page-link" style="color: #2c3e50;" href="http://localhost:8888/projetocomun/admin/listagemUsuarios?p=<?php echo static::e($q+1); ?>"><?php echo static::e($q+1); ?></a></li>
+ 
+ <?php endfor; ?>
+ 
+ </ul>
+ 
  </div>
  </div>    
  </article>
