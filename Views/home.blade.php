@@ -118,7 +118,7 @@
             </div>
             <div class="form-group">
               <label for="recipient-pass" class="col-form-label">Senha:</label>
-              <input type="text" name="senha" class="form-control" id="recipient-pass">
+              <input type="password" name="senha" class="form-control" id="recipient-pass">
             </div>
             <button type="submit" class="btn btn-primary">Entrar</button>
           </form>
@@ -146,7 +146,7 @@
           </div>
           <div class="form-group">
             <label for="recipient-pass" class="col-form-label">Senha:</label>
-            <input type="text" name="senha" class="form-control" id="recipient-pass">
+            <input type="password" name="senha" class="form-control" id="recipient-pass">
           </div>
           <button type="submit" class="btn btn-primary">Entrar</button>
         </form>

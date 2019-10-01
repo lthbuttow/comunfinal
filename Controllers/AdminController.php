@@ -48,7 +48,7 @@ class AdminController extends Controller {
 
         $total_users = $this->user->getTotalUsuarios();
         $total_users = $total_users['contagem'];
-        $qt_por_pag = 5;
+        $qt_por_pag = 6;
         $paginas = $total_users / $qt_por_pag;
         
         $pg = 1;
@@ -58,6 +58,8 @@ class AdminController extends Controller {
 
         $p = ($pg-1) * $qt_por_pag;
 
+        $array['total'] = $total_users;
+        $array['paginas'] = $paginas;
         $array['listagem'] = $this->user->getUsuariosPagination($p,$qt_por_pag);
         $_SESSION['p'] = $p;
         $_SESSION['qt_por_pag'] = $qt_por_pag;        
