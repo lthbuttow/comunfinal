@@ -503,7 +503,7 @@ function deleteUser(id) {
 	confirmaExclusao.addEventListener('click', () => {
 		$.ajax({
 			type:'POST',
-			url:'http://localhost:8888/projetocomun/ajax/delete',
+			url:'https://projetocomun.com/ajax/delete',
 			data:{id:id},
 			success: function() {
                 linhas = $("#usersList>tbody>tr");
