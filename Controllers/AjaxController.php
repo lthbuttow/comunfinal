@@ -121,8 +121,25 @@ class AjaxController extends Controller {
         if(isset($_POST['id']) && !empty($_POST['id'])) {
             $id = addslashes($_POST['id']);
 
-            $usuario = new UsuarioDAO();
-            $usuario->delete($id);
+            if($this->usuarioDAO->delete($id)) {
+                echo 'Exclusão realizada com sucesso';
+                $_SESSION['mensagem'] = '<div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>Sucesso!</strong> O usuário foi deletado.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+            }
+            else {
+                echo 'Erro ao excluir';
+                $_SESSION['mensagem'] = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Algo deu errado!</strong> Não foi possível deletar o usuário.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+            }
+            
         }
  
 	}

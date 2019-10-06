@@ -496,17 +496,20 @@ $(function () {
 // new
 function deleteUser(id) {
 
-	if(id != '') {
+	$('#ExcluirUsuario').modal('show');
 
+	let confirmaExclusao = document.querySelector('#confirmaExcluir');
+
+	confirmaExclusao.addEventListener('click', () => {
 		$.ajax({
 			type:'POST',
-			url:'ajax/delete',
+			url:'http://localhost:8888/projetocomun/ajax/delete',
 			data:{id:id},
 			success: function() {
                 linhas = $("#usersList>tbody>tr");
                 e = linhas.filter( function(i, elemento) {
-                    return elemento.cells[0].textContent == id; 
-                });
+										return elemento.cells[0].textContent == id; 
+								});
                 if (e){
 					e.fadeOut(400, function(){
 						this.remove();
@@ -514,8 +517,8 @@ function deleteUser(id) {
 				}
 			}
 		});
-
-	}
+		$('#ExcluirUsuario').modal('hide');
+	});
 
 }
 

@@ -1,97 +1,102 @@
-    <article class="mastheader article text-center text-white d-flex">
-      <div class="container my-auto">
-      <?php 
-    	if (isset($_SESSION['mensagem'])) {
-    		echo $_SESSION['mensagem'];
-    		unset($_SESSION['mensagem']);
-    	}
-    	?>
-      <div id="alert">
-            
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-left">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="../admin" style="color: #2c3e50;">Painel do Administrador</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Menu de usuários</li>
-            </ol>
-          </nav>
-        </div>
-      </div>    
-        <?php
-        // $total_users = $user->getTotalUsuarios();
-        // $total_users = $total_users['contagem'];
-        // $qt_por_pag = 5;
-        // $paginas = $total_users / $qt_por_pag;
+<article class="mastheader article text-center text-white d-flex">
+  <div class="container my-auto">
+  <?php 
+  if (isset($_SESSION['mensagem'])) {
+    echo ($_SESSION['mensagem']);
+    unset($_SESSION['mensagem']);
+  }
+  ?>
+  <div id="alert">
         
-        // $pg = 1;
-        // if(isset($_GET['p']) && !empty($_GET['p'])){
-        //   $pg = $_GET['p'];
-        // }
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-left">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../admin" style="color: #2c3e50;">Painel do Administrador</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Menu de usuários</li>
+        </ol>
+      </nav>
+    </div>
+  </div>    
+    <h6>Pesquisar Usuários</h6>
+    <form method="POST" id="form-pesquisa" class="form-group" >
+      <input type="text" name="pesquisa" id="pesquisa" class="form-control" placeholder="Digite o nome do usuário">
+    </form>
 
-        // $p = ($pg-1) * $qt_por_pag;
-
-        // $result = $user->getUsuariosPagination($p,$qt_por_pag);
-        // $_SESSION['p'] = $p;
-        // $_SESSION['qt_por_pag'] = $qt_por_pag;
-        ?>
-        <h6>Pesquisar Usuários</h6>
-        <form method="POST" id="form-pesquisa" class="form-group" >
-          <input type="text" name="pesquisa" id="pesquisa" class="form-control" placeholder="Digite o nome do usuário">
-        </form>
-
-        <div class="row">
-            <div class="col-md-12 text-left">
-              <a class="btn btn-primary" href="add_user.php" role="button">ADICIONAR USUÁRIO</a>
-            </div>
+    <div class="row">
+        <div class="col-md-12 text-left">
+          <a class="btn btn-primary" href="add_user.php" role="button">ADICIONAR USUÁRIO</a>
         </div>
+    </div>
 
-        <div class="row justify-content-center mt-4 mb-5">
-            <div class="col-md-12 ">
-              <div class="table-responsive">
-                  <table class="table">
-                      <thead>
-                          <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Edição</th>
-                            <th scope="col">Exclusão</th>
-                            <th scope="col">Chat</th>
-                            <th scope="col">Enviar - Receber</th>
-                          </tr>
-                      </thead>
-                      <tbody id = content>
-                          @foreach($listagem as $user)
-                            <tr>
-                              <td>{{$user['nome']}}</td>
-                              <td>{{$user['email']}}</td>
-                              <td><a class="btn btn-secondary" id="edita_adm">Editar</a></td>
-                              <td><a class="btn btn-danger excluir">Excluir</a></td>
-                              <td><a class="btn btn-warning">Iniciar</a></td>                   
-                              <td><a class="btn btn-primary acessa">Arquivos</a></td>
-                            </tr>
-                          @endforeach      
-                      </tbody>
-                  </table>
-              </div> 
-            </div>
-            
-          <ul class="pagination justify-content-center mb-4">
+    <div class="row justify-content-center mt-4 mb-5">
+        <div class="col-md-12 ">
+          <div class="table-responsive">
+              <table class="table" id="usersList">
+                  <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Edição</th>
+                        <th scope="col">Exclusão</th>
+                        <th scope="col">Chat</th>
+                        <th scope="col">Enviar - Receber</th>
+                      </tr>
+                  </thead>
+                  <tbody id = content>
+                      @foreach($listagem as $user)
+                        <tr>
+                          <td scope="row">{{ $user['id'] }}</td>
+                          <td>{{$user['nome']}}</td>
+                          <td>{{$user['email']}}</td>
+                          <td><a class="btn btn-secondary" id="edita_adm">Editar</a></td>
+                          <td><a class="btn btn-danger excluir" onclick="deleteUser({{$user['id']}})">Excluir</a></td>
+                          <td><a class="btn btn-warning">Iniciar</a></td>                   
+                          <td><a class="btn btn-primary acessa">Arquivos</a></td>
+                        </tr>
+                      @endforeach      
+                  </tbody>
+              </table>
+          </div> 
+        </div>
+        
+      <ul class="pagination justify-content-center mb-4">
 
-          @for($q=0; $q<$paginas; $q++)
-          
-          <li class="page-item"><a class="page-link" style="color: #2c3e50;" href="https://projetocomun.com/admin/listagemUsuarios?p={{$q+1}}">{{$q+1}}</a></li>
-          
-          @endfor
-          
-          </ul>
-                    
-          </div>
-      </div>    
-    </article>
+      @for($q=0; $q<$paginas; $q++)
+      
+      <li class="page-item"><a class="page-link" style="color: #2c3e50;" href="https://projetocomun.com/admin/listagemUsuarios?p={{$q+1}}">{{$q+1}}</a></li>
+      
+      @endfor
+      
+      </ul>
+                
+      </div>
+  </div>    
+</article>
 
 <div class="container-fluid bg-dark text-center text-white">
   <p class="pb-2 mb-0 pt-2">Desenvolvido por Lucas Büttow <i class="fas fa-copyright"></i></p>
 </div>
-
+  
+<!-- Modal -->
+<div class="modal fade" id="ExcluirUsuario" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Exclusão de Usuário</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Você realmente deseja excluir este usuário?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="confirmaExcluir">Sim</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>    
+      </div>
+    </div>
+  </div>
+</div>
