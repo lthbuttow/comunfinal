@@ -173,18 +173,22 @@ $(function () {
 
 				$.ajax({
 					type: "POST",
-					url: "funcs/insere_user.php",
+					url: "http://localhost:8888/projetocomun/ajax/addUsuario",
 					data: data,
 					dataType: "json",
 					success: function(resultado) {
 						if (resultado.Status == 'ok') {
 							$('div #alert').html('<div class="alert alert-primary alert-dismissible fade show" role="alert"><strong>Sucesso! </strong>Usuário cadastrado!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 							
+							console.log('entrou');
+
 							$('#email').val("");
 							$('#nome').val("");
 						   	$('#senha').val("");
 						} else {
 							$('div #alert').html('<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Erro! </strong>Não foi possível cadastrar usuário, verifique os dados e tente novamente!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+
+							console.log('deu ruim');
 						}
 					}
 				});

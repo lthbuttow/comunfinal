@@ -67,20 +67,8 @@ class AdminController extends Controller {
         $this->loadTemplate('menuUsers', $array);
     }
 
-	public function addUser() {
+	public function adicionarUsuario() {
         $dados = array();
-        
-        if(isset($_POST['nome']) && !empty($_POST['nome'])) {
-
-            $nome = addslashes($_POST['nome']);
-            $senha = $_POST['senha'];
-
-            $u = new Usuario();
-
-            if($u->inserirUser($nome, $senha)) {
-                header('Location: http://localhost/mvc_psr4/');
-            }
-        }
 
         
         $this->loadTemplate('AddUser', $dados);

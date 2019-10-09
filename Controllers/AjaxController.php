@@ -142,6 +142,33 @@ class AjaxController extends Controller {
             
         }
  
-	}
+    }
+    
+    public function addUsuario() {
+        if (!empty($_POST['email']) && !empty($_POST['nome'])) {
+
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $senha= $_POST['senha'];
+            
+            } else {
+                $array = array('Status' => 'ERRO' );
+            }
+            
+            
+            $resultado = $this->usuarioDAO->inserirUsuario($nome,$email,$senha);
+                
+                
+                if ($resultado == true) {
+                
+                $array = array('Status' => 'ok' );
+                
+                } else {
+            
+                $array = array('Status' => 'ERRO' );
+                }
+            
+                echo json_encode($array);
+    }
 
 }

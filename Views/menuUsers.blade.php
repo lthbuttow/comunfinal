@@ -26,7 +26,7 @@
 
     <div class="row">
         <div class="col-md-12 text-left">
-          <a class="btn btn-primary" href="add_user.php" role="button">ADICIONAR USUÁRIO</a>
+          <a class="btn btn-primary" href="../admin/adicionarUsuario" role="button">ADICIONAR USUÁRIO</a>
         </div>
     </div>
 
@@ -60,8 +60,7 @@
                   </tbody>
               </table>
           </div> 
-        </div>
-        
+
       <ul class="pagination justify-content-center mb-4">
 
       @for($q=0; $q<$paginas; $q++)
