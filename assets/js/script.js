@@ -173,7 +173,7 @@ $(function () {
 
 				$.ajax({
 					type: "POST",
-					url: "http://localhost:8888/projetocomun/ajax/addUsuario",
+					url: "https://projetocomun.com/ajax/addUsuario",
 					data: data,
 					dataType: "json",
 					success: function(resultado) {
