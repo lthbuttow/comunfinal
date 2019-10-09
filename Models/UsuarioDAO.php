@@ -167,6 +167,22 @@ class UsuarioDAO extends Model {
 
 	}
 
+	public function inserirUsuario($nome,$email,$senha){
+		$sql = "INSERT INTO usuarios (nome,email,senha) VALUES (:nome,:email,:senha)";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':nome', $nome);
+		$sql->bindValue(':email', $email);
+		$sql->bindValue(':senha', $senha);
+		
+		if($sql->execute()){
+		
+		return true;
+
+	} else{
+		return false;
+		}		
+	}
+
 	// Users pagination
 	public function getUsuariosPagination($p,$qt_por_pag){
 		$sql = "(SELECT * FROM usuarios WHERE admin ='0' LIMIT $qt_por_pag OFFSET $p) ORDER BY id DESC";
