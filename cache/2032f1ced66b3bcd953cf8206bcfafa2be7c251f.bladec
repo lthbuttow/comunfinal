@@ -5,8 +5,8 @@
  
  <nav aria-label="breadcrumb">
  <ol class="breadcrumb">
- <li class="breadcrumb-item"><a href="admin.php" style="color: #2c3e50;">Painel do Administrador</a></li>
- <li class="breadcrumb-item"><a href="menu_users.php" style="color: #2c3e50;">Menu de Usuários</a></li>
+ <li class="breadcrumb-item"><a href="../" style="color: #2c3e50;">Painel do Administrador</a></li>
+ <li class="breadcrumb-item"><a href="../listagemUsuarios" style="color: #2c3e50;">Menu de Usuários</a></li>
  <li class="breadcrumb-item active" aria-current="page">Editar Usuário</li>
  </ol>
  </nav>
@@ -15,7 +15,7 @@
  <div id="alert">
  
  </div>
- <form id="editar_usuario">
+ <form id="form_editar">
  <input type="hidden" id="id_user" name="id_user" value="<?php echo static::e($dados['id']); ?>">
  <div class="form-group">
  <label for="nome">Nome</label>
@@ -27,7 +27,7 @@
  </div>
  <div class="form-group">
  <label for="senha">Senha</label>
- <input type="password" name="senha" class="form-control" id="senha" placeholder="Digite a senha..." value="<<?php echo static::e($dados['senha']); ?>">
+ <input type="password" name="senha" class="form-control" id="senha" placeholder="Digite a senha..." value="<?php echo static::e($dados['senha']); ?>">
  </div>
  <button class="btn btn-info" id="envia_alter">Confirmar</button>
  </form>
