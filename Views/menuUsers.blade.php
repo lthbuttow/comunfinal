@@ -60,38 +60,6 @@
                   </tbody>
               </table>
           </div> 
-
-        <div class="row justify-content-center mt-4 mb-5">
-            <div class="col-md-12 ">
-              <div class="table-responsive">
-                  <table class="table" id="usersList">
-                      <thead>
-                          <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Edição</th>
-                            <th scope="col">Exclusão</th>
-                            <th scope="col">Chat</th>
-                            <th scope="col">Enviar - Receber</th>
-                          </tr>
-                      </thead>
-                      <tbody id = content>
-                          @foreach($listagem as $user)
-                            <tr>
-                              <td scope="row">{{ $user['id'] }}</td>
-                              <td>{{$user['nome']}}</td>
-                              <td>{{$user['email']}}</td>
-                            <td><a class="btn btn-secondary" id="edita_adm" href="editarusuario/{{$user['id']}}">Editar</a></td>
-                              <td><a class="btn btn-danger excluir" onclick="deleteUser({{$user['id']}})">Excluir</a></td>
-                              <td><a class="btn btn-warning">Iniciar</a></td>                   
-                              <td><a class="btn btn-primary acessa">Arquivos</a></td>
-                            </tr>
-                          @endforeach      
-                      </tbody>
-                  </table>
-              </div> 
-            </div>
             
           <ul class="pagination justify-content-center mb-4">
 
