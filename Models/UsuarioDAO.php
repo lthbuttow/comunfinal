@@ -183,6 +183,21 @@ class UsuarioDAO extends Model {
 		}		
 	}
 
+	public function getDadosEditar($id_user){
+		$sql = "SELECT * FROM usuarios WHERE id = :id_user";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id_user', $id_user);
+		
+		if($sql->execute()){
+
+		$result = $sql->fetch();
+		
+		return $result;
+	} else{
+		return false;
+		}
+	}
+
 	// Users pagination
 	public function getUsuariosPagination($p,$qt_por_pag){
 		$sql = "(SELECT * FROM usuarios WHERE admin ='0' LIMIT $qt_por_pag OFFSET $p) ORDER BY id DESC";

@@ -71,7 +71,32 @@ class AdminController extends Controller {
         $dados = array();
 
         
-        $this->loadTemplate('addUser', $dados);
+        $this->loadTemplate('AddUser', $dados);
+    }
+
+    public function editarUsuario($id_user) {
+        $dados = array();
+
+        if($id_user != '') {
+
+			$data = $this->user->getDadosEditar($id_user);
+
+			if($data != ''){
+                // $dados['nome'] = $data['name'];
+                // $dados['senha'] = $data['senha'];
+                $dados['dados'] = $data;
+			}
+
+            // if(isset($_POST['nome']) && !empty($_POST['senha'])) {
+            //     $newNome = $_POST['nome'];
+            //     $newSenha = $_POST['senha'];
+
+            //     if($u->editarUser($id, $newNome, $newSenha)) {
+            //         header('Location: http://localhost/mvc_psr4/');
+            //     }
+            // }
+            }
+        $this->loadTemplate('editaUser', $dados);
 	}
 
 	// public function editUser($id) {
