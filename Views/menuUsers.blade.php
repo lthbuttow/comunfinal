@@ -51,7 +51,7 @@
                           <td scope="row">{{ $user['id'] }}</td>
                           <td>{{$user['nome']}}</td>
                           <td>{{$user['email']}}</td>
-                          <td><a class="btn btn-secondary" id="edita_adm">Editar</a></td>
+                          <td><a class="btn btn-secondary" id="edita_adm" href="editarusuario/{{$user['id']}}">Editar</a></td>
                           <td><a class="btn btn-danger excluir" onclick="deleteUser({{$user['id']}})">Excluir</a></td>
                           <td><a class="btn btn-warning">Iniciar</a></td>                   
                           <td><a class="btn btn-primary acessa">Arquivos</a></td>
