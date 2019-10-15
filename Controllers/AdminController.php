@@ -71,7 +71,7 @@ class AdminController extends Controller {
         $dados = array();
 
         
-        $this->loadTemplate('AddUser', $dados);
+        $this->loadTemplate('addUser', $dados);
     }
 
     public function editarUsuario($id_user) {
