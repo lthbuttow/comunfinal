@@ -117,8 +117,8 @@
         <div class="modal-body">
           <form method="POST" action="login/loginUser">
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Nome/E-mail:</label>
-              <input type="text" name="nome" class="form-control" id="recipient-name">
+              <label for="recipient-name" class="col-form-label">E-mail:</label>
+              <input type="email" name="email" class="form-control" id="recipient-name" required>
             </div>
             <div class="form-group">
               <label for="recipient-pass" class="col-form-label">Senha:</label>
@@ -146,7 +146,7 @@
         <form method="POST" action="login/loginAdmin">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">E-mail:</label>
-            <input type="email" name="email" class="form-control" id="recipient-name">
+            <input type="email" name="email" class="form-control" id="recipient-name" required>
           </div>
           <div class="form-group">
             <label for="recipient-pass" class="col-form-label">Senha:</label>

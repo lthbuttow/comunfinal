@@ -19,14 +19,14 @@ class LoginController extends Controller {
     public function loginUser() {
         $dados = array();
         
-        if(isset($_POST['nome']) && !empty($_POST['nome'])) {
+        if(isset($_POST['email']) && !empty($_POST['email'])) {
 
-            $nome = $_POST['nome'];
+            $email = $_POST['email'];
             $senha = $_POST['senha'];
 
             $u = new UsuarioDAO();
 
-            if($u->fazerLogin($nome, $senha)) {
+            if($u->fazerLogin($email, $senha)) {
                 header('Location: http://localhost:8888/projetocomun/usuario');
             }
             else {
