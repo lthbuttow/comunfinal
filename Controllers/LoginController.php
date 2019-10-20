@@ -30,10 +30,22 @@ class LoginController extends Controller {
                 header('Location: https://projetocomun.com/usuario');
             }
             else {
+                $_SESSION['mensagem'] = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Algo deu errado!</strong> Verifique suas informações.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
                 header('Location: https://projetocomun.com/');
             }
         }
         else {
+            $_SESSION['mensagem'] = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Algo deu errado!</strong> Verifique suas informações.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
             header('Location: https://projetocomun.com/'); 
         }
     
@@ -54,10 +66,22 @@ class LoginController extends Controller {
                 header('Location: https://projetocomun.com/admin');
             }
             else {
+                $_SESSION['mensagem'] = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Algo deu errado!</strong> Verifique suas informações.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
                 header('Location: https://projetocomun.com/');
             }
         }
         else {
+            $_SESSION['mensagem'] = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Algo deu errado!</strong> Verifique suas informações.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
             header('Location: https://projetocomun.com/'); 
         }
     
