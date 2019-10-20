@@ -2,6 +2,10 @@
  <div class="container my-auto">
  <div class="row">
  <div class="col-lg-10 mx-auto">
+ <?php if(isset($_SESSION['mensagem'])): ?> 
+ <?php echo $_SESSION['mensagem']; ?>
+ <?php unset($_SESSION['mensagem']); ?>
+ <?php endif; ?>
  <h1 class="text-uppercase">
  <strong>Comun.</strong>
  </h1>
