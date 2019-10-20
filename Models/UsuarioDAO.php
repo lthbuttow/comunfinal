@@ -26,10 +26,10 @@ class UsuarioDAO extends Model {
 
 	}	
 	
-	public function fazerLogin($nome, $senha) {
+	public function fazerLogin($email, $senha) {
 
-		$sql = $this->db->prepare("SELECT * FROM usuarios WHERE nome = :nome AND senha = :senha");		
-		$sql->bindValue(":nome", $nome);
+		$sql = $this->db->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha");		
+		$sql->bindValue(":email", $email);
 		$sql->bindValue(":senha", $senha);
 		$sql->execute();
 
