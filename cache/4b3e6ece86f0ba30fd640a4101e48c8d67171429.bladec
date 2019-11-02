@@ -54,7 +54,7 @@
  <td><a class="btn btn-secondary" id="edita_adm" href="editarusuario/<?php echo static::e($user['id']); ?>">Editar</a></td>
  <td><a class="btn btn-danger excluir" onclick="deleteUser(<?php echo static::e($user['id']); ?>)">Excluir</a></td>
  <td><a class="btn btn-warning">Iniciar</a></td>                   
- <td><a class="btn btn-primary acessa">Arquivos</a></td>
+ <td><a class="btn btn-primary acessa" href="arquivosAdmin/<?php echo static::e($user['id']); ?>">Arquivos</a></td>
  </tr>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>      
  </tbody>

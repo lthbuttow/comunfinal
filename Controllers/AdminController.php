@@ -5,6 +5,7 @@ use \Core\Controller;
 use \Models\Usuario;
 use \Models\UsuarioDAO;
 use \Models\MensagemDAO;
+use \Models\ArquivoDAO;
 
 class AdminController extends Controller {
 
@@ -72,6 +73,40 @@ class AdminController extends Controller {
 
         
         $this->loadTemplate('AddUser', $dados);
+    }
+
+	public function arquivosAdmin($id_para) {
+        $dados = array();
+        $id_admin = $_SESSION['admin'];
+        $id_user = $id_para;
+
+        $arquivo = new ArquivoDAO();
+
+        $total_arquivos = $arquivo->getTotalArquivos($id_user);
+        $total_arquivos = $total_arquivos['contagem'];
+        $qt_por_pag = 4;
+        $paginas = $total_arquivos / $qt_por_pag;
+        $pg = 1;
+        if(isset($_GET['p']) && !empty($_GET['p'])){
+            $pg = $_GET['p'];
+        }
+
+        $dados['id_para'] = $id_para;
+        $dados['total'] = $total_arquivos;
+        $dados['paginas'] = $paginas;
+
+        $p = ($pg-1) * $qt_por_pag;      
+        $result = $arquivo->meusArquivosAdminPag($id_de,$id_para,$p,$qt_por_pag);
+        
+        $this->loadTemplate('arquivosAdmin', $dados);
+    }
+
+    public function enviaArquivosAdmin($id_para) {
+        $dados = array();
+        $id_admin = $_SESSION['admin'];
+        $id_user = $id_para;
+        
+        $this->loadTemplate('enviaArquivosAdmin', $dados);
     }
 
     public function editarUsuario($id_user) {
