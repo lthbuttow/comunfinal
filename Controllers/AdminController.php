@@ -5,6 +5,7 @@ use \Core\Controller;
 use \Models\Usuario;
 use \Models\UsuarioDAO;
 use \Models\MensagemDAO;
+use \Models\ArquivoDAO;
 
 class AdminController extends Controller {
 
@@ -72,6 +73,105 @@ class AdminController extends Controller {
 
         
         $this->loadTemplate('addUser', $dados);
+    }
+
+	public function arquivosAdmin($id_para) {
+        $dados = array();
+        $id_admin = $_SESSION['login'];
+        $id_user = $id_para;
+
+        $arquivo = new ArquivoDAO();
+
+        $total_arquivos = $arquivo->getTotalArquivos($id_user);
+        $total_arquivos = $total_arquivos['contagem'];
+        $qt_por_pag = 4;
+        $paginas = $total_arquivos / $qt_por_pag;
+        $pg = 1;
+        if(isset($_GET['p']) && !empty($_GET['p'])){
+            $pg = $_GET['p'];
+        }
+
+        $dados['id_para'] = $id_para;
+        $dados['total'] = $total_arquivos;
+        $dados['paginas'] = $paginas;
+
+        $p = ($pg-1) * $qt_por_pag;      
+        $result = $arquivo->meusArquivosAdminPag($id_de,$id_para,$p,$qt_por_pag);
+        
+        $this->loadTemplate('arquivosAdmin', $dados);
+    }
+
+    public function enviaArquivosAdmin($id_para) {
+        $dados = array();
+        $id_admin = $_SESSION['login'];
+        $id_user = $id_para;
+
+        $arquivo = new ArquivoDAO();
+
+        if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo']) && isset($_POST['comment'])) {
+            $file = $_FILES['arquivo'];
+
+            $id_para = $id_user;
+            $id_de = $id_admin;
+            $comentario = $_POST['comment'];
+            // $comentario = $_POST['comment'];
+            // $nome = $_SESSION['nome'];
+            $nome = 'Nome teste';
+            
+            $nome_arquivo = 'default.jpg';
+
+            if (isset($file['tmp_name']) && !empty($file['tmp_name'])) {
+                
+                $tipo = $file['type'];
+
+                if (in_array($tipo, array('image/jpeg', 'image/jpg', 'image/png'))) {
+                    
+                    $nm = explode(' ',$nome);
+                    $nm_concat = implode($nm);
+                    $nm_final = strtolower($nm_concat);
+
+                    $nome_arquivo = 'documento'.$nm_final.rand(0,99999).'.png';
+                    print_r($file);
+                    move_uploaded_file($file['tmp_name'], 'arquivos/'.$nome_arquivo);
+
+                    $result = $arquivo->addArquivo($id_de,$id_para,$nome_arquivo,$comentario);
+                    if ($result === true) {
+                        $_SESSION['mensagem'] = '
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>Sucesso!</strong> Arquivo enviado!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>';
+                        // if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
+                        //     // header("Location: ../caixa_arquivos_admin.php?id_user=$id_para");
+                        //     header("Location: http://localhost:8888/projetocomun/admin/enviaArquivosAdmin/$id_para");
+                        // } 
+                        }
+                    } else{
+                        $_SESSION['mensagem'] = '
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>ERRO!</strong> Não foi possível enviar o arquivo, tente novamente!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>';		
+                    }
+                
+                }
+            }
+
+         else{
+            $_SESSION['mensagem'] = '
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Erro!</strong> Favor selecionar algum arquivo!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>';
+        }
+        
+        $this->loadTemplate('enviaArquivosAdmin', $dados);
     }
 
     public function editarUsuario($id_user) {

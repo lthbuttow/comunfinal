@@ -2,6 +2,15 @@
 <!-- topo -->
 <body>
 <div id="page-top" role="header">
+
+      <?php
+    //   require 'classes/admin.class.php';
+
+    //   $id_user = $_SESSION['id_user'];
+    //   $admin = NEW Admin(); 
+    //   $result = $admin->getAdmin();
+    //   $res = $admin->getSenhaPadrao($id_user);
+    //   ?>
     <article class="mastheads article text-center text-white d-flex">
       <div class="container my-auto">
         <div class="row">
@@ -28,7 +37,7 @@
             <a class="btn btn-md btn-outline-success btam" id="envia_user"  role="button" data-toggle="tooltip" data-placement="top" title="Envie seus arquivos"><span class="fas fa-upload" style="margin-right:.2em;"></span>ARQUIVOS</a>
           </div>
           <div class="col-md-4 col-sm-4 col-xl-2 mt-2">
-            <a class="btn btn-md btn-outline-secondary btam" href="caixa_arquivos.php?id_user=<?php echo $_SESSION['id_user']; ?>"  role="button" data-toggle="tooltip" data-placement="top" title="Verifique aqui novos arquivos recebidos"><span class="fas fa-download" style="margin-right:.2em;"></span>RECEBIDOS</a>
+            <a class="btn btn-md btn-outline-secondary btam" href="usuario/arquivosrecebidosusuario/{{$_SESSION['login']}}"  role="button" data-toggle="tooltip" data-placement="top" title="Verifique aqui novos arquivos recebidos"><span class="fas fa-download" style="margin-right:.2em;"></span>RECEBIDOS</a>
           </div>          
           <div class="col-md-4 col-sm-4 col-xl-2 mt-2">
             <a class="btn btn-md btn-outline-warning btam " id="chat_enviar" href="chat.php?id_para=<?php echo $result['id_user'];?>" role="button" data-toggle="tooltip" data-placement="top" title="Tire suas dúvidas com um operador em tempo real"><span class="fas fa-headset" style="margin-right:.2em;"></span>SUPORTE</a>
