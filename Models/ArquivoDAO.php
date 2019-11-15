@@ -41,5 +41,33 @@ class ArquivoDAO extends Model {
 	} else{
 		return false;
 		}
-	} 
+    } 
+    
+    public function addArquivo($id_de,$id_para,$link,$comentario){
+        $sql = $this->db->prepare("INSERT INTO arquivos (id_de,id_para,url,comentario,data_envio) VALUES (:id_de, :id_para, :link, :comentario, NOW())");
+        $sql->bindValue(":id_de", $id_de);
+        $sql->bindValue(":id_para", $id_para);
+        $sql->bindValue(":link", $link);
+        $sql->bindValue(":comentario", $comentario);
+        
+        if($sql->execute()){
+
+            return true;
+        } else{
+            return false;
+        }   
+    }
+
+    public function userArquivos($id_para){
+        $sql = $this->db->prepare("SELECT * FROM arquivos WHERE id_para = :id_para");
+        $sql->bindValue(":id_para", $id_para);
+        
+        if($sql->execute()){
+
+            $resultado = $sql->fetchAll();
+            return $resultado;
+        } else{
+            return false;
+        }       
+    }
 }

@@ -8,13 +8,18 @@
   
     <article class="mastheads text-center text-white d-flex">
       <div class="container my-auto">
-      
+        <?php 
+        if (isset($_SESSION['mensagem'])) {
+          echo $_SESSION['mensagem'];
+          unset($_SESSION['mensagem']);
+        }
+        ?> 
       <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="admin.php" style="color: #2c3e50;">Painel do Administrador</a></li>
-            <li class="breadcrumb-item"><a href="menu_users.php" style="color: #2c3e50;">Menu de Usuários</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Enviar Arquivo</li>
-          </ol>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../" style="color: #2c3e50;">Painel do Administrador</a></li>
+          <li class="breadcrumb-item"><a href="../listagemUsuarios" style="color: #2c3e50;">Menu de Usuários</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Lista de Arquivos/Envio</li>
+        </ol>
         </nav>
 
         <div class="row justify-content-center mt-4 mb-2">
@@ -22,7 +27,7 @@
             <div id="alert">
             
             </div>
-            <form action="funcs/envia_arquivos.php?id_para=<?php echo $id_para;?>" method="POST" enctype="multipart/form-data" id="form_envia_user">
+            <form method="POST" enctype="multipart/form-data" id="form_envia_user">
                   <div class="form-group">
                     <label for="arquivo"><h3>Envie seus arquivos aqui</h3></label>
                     <input type="file" name="arquivo" class="form-control-file" id="arquivo" aria-describedby="enviodearquivos">

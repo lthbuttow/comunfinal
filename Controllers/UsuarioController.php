@@ -4,6 +4,8 @@ namespace Controllers;
 use \Core\Controller;
 use \Models\Usuario;
 use \Models\UsuarioDAO;
+use \Models\Arquivo;
+use \Models\ArquivoDAO;
 
 class UsuarioController extends Controller {
 	
@@ -51,6 +53,16 @@ class UsuarioController extends Controller {
 
         
         $this->loadTemplate('AddUser', $dados);
+    }
+    
+    public function arquivosRecebidosUsuario($id_para) {
+        $dados = array();
+
+        $arquivo = new ArquivoDAO();
+        $dados['arquivos']= $arquivo->userArquivos($id_para);
+
+        
+        $this->loadTemplate('arquivosUser', $dados);
 	}
 
 	// public function editUser($id) {
