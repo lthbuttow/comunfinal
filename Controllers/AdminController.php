@@ -108,7 +108,7 @@ class AdminController extends Controller {
 
         $arquivo = new ArquivoDAO();
 
-        if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo']) && isset($_POST['comment'])) {
+        if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])) {
             $file = $_FILES['arquivo'];
 
             $id_para = $id_user;
@@ -130,7 +130,7 @@ class AdminController extends Controller {
                     $nm_concat = implode($nm);
                     $nm_final = strtolower($nm_concat);
 
-                    $nome_arquivo = 'documento'.$nm_final.rand(0,99999).'.png';
+                    $nome_arquivo = 'doc'.$nm_final.rand(0,99999).'.jpg';
                     print_r($file);
                     move_uploaded_file($file['tmp_name'], 'arquivos/'.$nome_arquivo);
 
@@ -150,7 +150,7 @@ class AdminController extends Controller {
                         }
                     } else{
                         $_SESSION['mensagem'] = '
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>ERRO!</strong> Não foi possível enviar o arquivo, tente novamente!
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -163,8 +163,8 @@ class AdminController extends Controller {
 
          else{
             $_SESSION['mensagem'] = '
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Erro!</strong> Favor selecionar algum arquivo!
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Olá!</strong> Não esqueça de selecionar algum arquivo!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
