@@ -39,7 +39,7 @@
 				else {
 				?>
 				<li class="nav-item">
-					<a class="nav-link" href="../login/logout" id="scrollSuave">Logout</a>
+					<a class="nav-link" href="www.projetocomun.com/login/logout" id="scrollSuave">Logout</a>
 				</li>
 				<?php	
 				} 
