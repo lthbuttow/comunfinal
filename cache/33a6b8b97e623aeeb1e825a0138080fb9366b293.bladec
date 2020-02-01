@@ -57,18 +57,14 @@
  </tr>
  </thead>
  <tbody>
- <?php 
- foreach($result as $arquivo){
- $html = '
+ <?php $__currentLoopData = $result; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $arquivo): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
  <tr>
- <th scope="row">'.$arquivo['link'].'</th>
- <td>'.$arquivo['comentario'].'</td>
- <td>'.data_br($arquivo['dt_envio']).'</td>
- <td><a href="arquivos/'. $arquivo['link'].'" download class="btn btn-info">Baixar</a></td>
- </tr>';
- echo $html;
- }
- ?>
+ <th scope="row"><?php echo static::e($arquivo['url']); ?></th>
+ <td><?php echo static::e($arquivo['comentario']); ?></td>
+ <td><?php echo static::e(date("d/m/Y - H:i", strtotime($arquivo['data_envio']))); ?></td>
+ <td><a href="../../arquivos/<?php echo static::e($arquivo['url']); ?>" download class="btn btn-info">Baixar</a></td>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </tbody>
  </table>
  <ul class="pagination justify-content-center mb-4">

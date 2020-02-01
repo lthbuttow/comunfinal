@@ -102,6 +102,18 @@ class UsuarioDAO extends Model {
 	} else{
 		return false;
 		}
+	}
+	
+	public function getAdmin(){
+		$sql = $this->db->prepare("SELECT id FROM usuarios WHERE admin = '1'");
+		$sql->bindValue(":id_user", $id_user);
+	
+		if($sql->execute()){
+		
+		return true;
+	} else{
+		return false;
+		}
 	}	
 	
 	public function delete($id) {
