@@ -57,18 +57,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                        foreach($result as $arquivo){
-                        $html = '
+                        @foreach ($result as $arquivo)
                         <tr>
-                        <th scope="row">'.$arquivo['link'].'</th>
-                        <td>'.$arquivo['comentario'].'</td>
-                        <td>'.data_br($arquivo['dt_envio']).'</td>
-                        <td><a href="arquivos/'. $arquivo['link'].'" download class="btn btn-info">Baixar</a></td>
-                        </tr>';
-                        echo $html;
-                        }
-                        ?>
+                           <th scope="row">{{$arquivo['url']}}</th>
+                           <td>{{$arquivo['comentario']}}</td>
+                           <td>{{date("d/m/Y - H:i", strtotime($arquivo['data_envio']))}}</td>
+                          <td><a href="../../arquivos/{{$arquivo['url']}}" download class="btn btn-info">Baixar</a></td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <ul class="pagination justify-content-center mb-4">

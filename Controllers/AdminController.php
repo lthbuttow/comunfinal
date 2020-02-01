@@ -75,10 +75,12 @@ class AdminController extends Controller {
         $this->loadTemplate('AddUser', $dados);
     }
 
-	public function arquivosAdmin($id_para) {
+	public function arquivosAdmin($id_de) {
         $dados = array();
         $id_admin = $_SESSION['login'];
-        $id_user = $id_para;
+        $id_user = $id_de;
+
+        $id_para = $id_admin;
 
         $arquivo = new ArquivoDAO();
 
@@ -98,6 +100,10 @@ class AdminController extends Controller {
         $p = ($pg-1) * $qt_por_pag;      
         $result = $arquivo->meusArquivosAdminPag($id_de,$id_para,$p,$qt_por_pag);
         
+        $dados['result'] = $result;
+
+        // print_r($dados['result']);
+
         $this->loadTemplate('arquivosAdmin', $dados);
     }
 
@@ -131,7 +137,7 @@ class AdminController extends Controller {
                     $nm_final = strtolower($nm_concat);
 
                     $nome_arquivo = 'doc'.$nm_final.rand(0,99999).'.jpg';
-                    print_r($file);
+                    // print_r($file);
                     move_uploaded_file($file['tmp_name'], 'arquivos/'.$nome_arquivo);
 
                     $result = $arquivo->addArquivo($id_de,$id_para,$nome_arquivo,$comentario);

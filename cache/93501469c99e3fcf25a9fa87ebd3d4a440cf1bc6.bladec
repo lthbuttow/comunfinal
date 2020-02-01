@@ -67,7 +67,7 @@
  <!-- envio de arquivos-->
  <div class="row justify-content-center mt-4 mb-5" id="envia">
  <div class="col-md-6">
- <form action="funcs/envia_arquivos.php?id_para=<?php echo static::e($_SESSION['login']); ?>" method="POST" enctype="multipart/form-data" id="form_envia_arquivos_user">
+ <form method="POST" enctype="multipart/form-data" id="form_envia_user">
  <div class="form-group">
  <label for="arquivo">Envie seus arquivos aqui</label>
  <input type="file" name="arquivo" class="form-control-file" id="arquivo" aria-describedby="enviodearquivos">
@@ -76,7 +76,7 @@
  <label for="comment">Deixe seu comentário aqui</label>
  <textarea id="comment" name="comment" class="form-control" rows="5" placeholder="Digite sua mensagem..."></textarea>
  </div>                               
- <button type="submit" class="btn btn-primary" id="envia_arquivos">Enviar</button>
+ <button type="submit" class="btn btn-primary" id="envia_arquivo">Enviar</button>
  </form> 
  </div>         
  </div> 
