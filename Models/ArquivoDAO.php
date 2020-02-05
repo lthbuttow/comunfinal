@@ -16,8 +16,8 @@ class ArquivoDAO extends Model {
     }
 
     public function meusArquivosAdminPag($id_de,$id_para,$p,$qt_por_pag){
-        // $sql = $this->db->prepare("SELECT * FROM arquivos WHERE id_de = :id_de AND id_para = :id_para ORDER BY data_envio DESC");
-        $sql = $this->db->prepare("(SELECT * FROM arquivos WHERE id_de = :id_de AND id_para = :id_para LIMIT $qt_por_pag OFFSET $p) ORDER BY data_envio DESC");
+        $sql = $this->db->prepare("SELECT * FROM arquivos WHERE id_de = :id_de AND id_para = :id_para ORDER BY data_envio DESC");
+        // $sql = $this->db->prepare("(SELECT * FROM arquivos WHERE id_de = :id_de AND id_para = :id_para LIMIT $qt_por_pag OFFSET $p) ORDER BY data_envio DESC");
         $sql->bindValue(":id_de", $id_de);
         $sql->bindValue(":id_para", $id_para);
         

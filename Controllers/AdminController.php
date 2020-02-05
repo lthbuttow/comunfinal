@@ -80,7 +80,7 @@ class AdminController extends Controller {
         $id_admin = $_SESSION['login'];
         $id_user = $id_de;
 
-        $id_para = $id_de;
+        $id_para = $id_admin;
 
         $arquivo = new ArquivoDAO();
 
@@ -101,6 +101,8 @@ class AdminController extends Controller {
         $result = $arquivo->meusArquivosAdminPag($id_de,$id_para,$p,$qt_por_pag);
         
         $dados['result'] = $result;
+
+        // print_r($id_para);
 
         // print_r($dados['result']);
 
