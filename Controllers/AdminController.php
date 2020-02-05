@@ -80,7 +80,7 @@ class AdminController extends Controller {
         $id_admin = $_SESSION['login'];
         $id_user = $id_de;
 
-        $id_para = $id_admin;
+        $id_para = $id_de;
 
         $arquivo = new ArquivoDAO();
 
@@ -107,17 +107,17 @@ class AdminController extends Controller {
         $this->loadTemplate('arquivosAdmin', $dados);
     }
 
-    public function enviaArquivosAdmin($id_para) {
+    public function enviaArquivosAdmin($id_to) {
         $dados = array();
         $id_admin = $_SESSION['login'];
-        $id_user = $id_para;
+        // $id_user = $id_para;
 
         $arquivo = new ArquivoDAO();
 
         if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])) {
             $file = $_FILES['arquivo'];
 
-            $id_para = $id_user;
+            $id_para = $id_to;
             $id_de = $id_admin;
             $comentario = $_POST['comment'];
             // $comentario = $_POST['comment'];
