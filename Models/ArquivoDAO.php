@@ -3,6 +3,7 @@ namespace Models;
 
 use Core\Model;
 use Models\Arquivo;
+use Models\Usuario;
 
 class ArquivoDAO extends Model {
 
@@ -13,6 +14,26 @@ class ArquivoDAO extends Model {
 
         $resultado = $sql->fetchAll(\PDO::FETCH_OBJ);
         return $resultado;
+    }
+
+    public function getUnread(){
+
+        $sql = $this->db->query("(SELECT * FROM usuarios, arquivos WHERE checked ='0'AND usuarios.admin = '0' AND usuarios.id = arquivos.id_de AND arquivos.id_para = '1') ORDER BY data_envio DESC");
+        if ($sql->execute()) {
+
+        $data = $sql->fetchAll(\PDO::FETCH_OBJ);
+        return $data;
+
+        }
+    }
+
+    public function getUnreadCount(){
+
+		$sql = $this->db->query("SELECT * FROM usuarios, arquivos WHERE admin ='0'AND usuarios.id = arquivos.id_de");
+		$sql->execute();
+
+		$resultado = $sql->rowCount();
+		return $resultado;
     }
 
     public function meusArquivosAdminPag($id_de,$id_para,$p,$qt_por_pag){

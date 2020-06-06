@@ -5,7 +5,7 @@
     <nav aria-label="breadcrumb" id="breadcrumb">
       <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="../admin" style="color: #2c3e50">Painel do Administrador</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Mensagens</li>
+      <li class="breadcrumb-item active" aria-current="page">Notificações</li>
       </ol>
     </nav>
       <div class="row justify-content-center mt-4 mb-5">
@@ -14,16 +14,22 @@
               <table class="table">
                   <thead>
                       <tr>
-                      <th scope="col">E-mail</th>
-                      <th scope="col">Mensagem</th>
+                      <th scope="col">Usuário</th>
+                      <th scope="col">Data de envio</th>
                       </tr>
                   </thead>
                   <tbody>
-                      @foreach($msgs as $msg)
-                      <tr>
-                        <td>{{$msg->email}}</td>
-                        <td>{{$msg->mensagem}}</td>
-                      </tr>
+                      @foreach($notificacoes as $notificacoes)
+                       
+                        <tr>
+                          <td>
+                            <a href="arquivosAdmin/{{$notificacoes->id_de}}">
+                              {{$notificacoes->nome}}
+                            </a>
+                          </td>
+                          <td>{{$notificacoes->data_envio}}</td>
+                        </tr>
+                      
                       @endforeach
                   </tbody>
               </table>

@@ -23,25 +23,25 @@ class AdminController extends Controller {
 	public function index() {
         $array = array();
         
-        $msg = new MensagemDAO();
+        $msg = new ArquivoDAO();
 
         $idUser = $_SESSION['login'];
         
-        $array['nrMsgs'] = $msg->getStatusMsg();
+        $array['unreadFilesCount'] = $msg->getUnreadCount();
  
 		$this->loadTemplate('adminHome', $array);
     }
    
     
-	public function mensagem() {
+	public function notificacoes() {
         $array = array();
         
-        $msg = new MensagemDAO();
+        $notificacao = new ArquivoDAO();
 
         
-        $array['msgs'] = $msg->getAll();
+        $array['notificacoes'] = $notificacao->getUnread();
  
-		$this->loadTemplate('msg', $array);
+		$this->loadTemplate('notificacoes', $array);
     }
 
     public function listagemUsuarios() {
