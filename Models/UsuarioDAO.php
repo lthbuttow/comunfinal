@@ -216,7 +216,6 @@ class UsuarioDAO extends Model {
 		$sql = $this->db->query($sql);
 	
 		if($sql){
-
 		$result = $sql->fetchAll();
 		
 		return $result;

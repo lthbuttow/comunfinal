@@ -23,9 +23,9 @@
           </div>
           <div class="col-lg-6 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <a href="https://projetocomun.com/admin/mensagem"><i class="fas fa-4x fa-envelope text-orange mb-3 sr-icon-4"></i>
-              <h4 class="mb-3">Mensagens</h4></a>
-              <p class="text-muted mb-0">Você tem {{ $nrMsgs }} mensagens a serem visualizadas</p>
+              <a href="https://projetocomun.com/admin/notificacoes"><i class="fas fa-4x fa-envelope text-orange mb-3 sr-icon-4"></i>
+              <h4 class="mb-3">Arquivos Recebidos</h4></a>
+              <p class="text-muted mb-0">Você tem {{ $unreadFilesCount }} arquivos a serem visualizados</p>
             </div>
           </div>
         </div>
