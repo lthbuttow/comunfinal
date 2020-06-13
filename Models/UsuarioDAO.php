@@ -236,5 +236,20 @@ class UsuarioDAO extends Model {
 	} else{
 		return false;
 		}
-	}	
+	}
+
+	public function getEmailDestinario($id_para){
+		$sql = "SELECT email FROM usuarios WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id', $id_para);
+	
+		if($sql->execute()){
+
+		$data = $sql->fetch();
+		
+		return $data;
+	} else{
+		return false;
+		}
+	}		
 }

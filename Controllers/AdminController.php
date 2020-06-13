@@ -7,6 +7,8 @@ use \Models\UsuarioDAO;
 use \Models\MensagemDAO;
 use \Models\ArquivoDAO;
 
+ require("log/logs.php");
+
 class AdminController extends Controller {
 
     private $user;
@@ -93,7 +95,7 @@ class AdminController extends Controller {
             $pg = $_GET['p'];
         }
 
-        $dados['id_para'] = $id_para;
+        $dados['id_para'] = $id_user;
         $dados['total'] = $total_arquivos;
         $dados['paginas'] = $paginas;
 
@@ -115,6 +117,7 @@ class AdminController extends Controller {
         // $id_user = $id_para;
 
         $arquivo = new ArquivoDAO();
+        $usuario = new UsuarioDAO();
 
         if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])) {
             $file = $_FILES['arquivo'];
@@ -122,11 +125,18 @@ class AdminController extends Controller {
             $id_para = $id_to;
             $id_de = $id_admin;
             $comentario = $_POST['comment'];
-            // $comentario = $_POST['comment'];
-            // $nome = $_SESSION['nome'];
+
             $nome = 'Nome teste';
             
             $nome_arquivo = 'default.jpg';
+
+            //Pega o destinatario do arquivo
+            $emailDest = $usuario->getEmailDestinario($id_para);
+            if($emailDest) {
+                $emailDest = $emailDest['email'];
+            } else {
+                $emailDest = 'undefinedUser';
+            }
 
             if (isset($file['tmp_name']) && !empty($file['tmp_name'])) {
                 
@@ -151,10 +161,10 @@ class AdminController extends Controller {
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>';
-                        // if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
-                        //     // header("Location: ../caixa_arquivos_admin.php?id_user=$id_para");
-                        //     header("Location: http://localhost:8888/projetocomun/admin/enviaArquivosAdmin/$id_para");
-                        // } 
+
+                        
+                        $texto = "Admin enviou o arquivo ".$nome_arquivo." com sucesso para ".$emailDest;
+                        logs($texto);
                         }
                     } else{
                         $_SESSION['mensagem'] = '
