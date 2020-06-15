@@ -574,3 +574,8 @@ header.mastheadss a {
 .over {
   overflow: hidden;
 }
+
+.hv:hover {
+  color: #f4511e !important;
+  transition: all 0.3s;
+}
