@@ -1,24 +1,23 @@
-    <header class="masthead text-center text-white d-flex" id="main">
-      <div class="container my-auto">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-              @if(isset($_SESSION['mensagem'])) 
-                <?php echo $_SESSION['mensagem']; ?>
-                @unset($_SESSION['mensagem'])
-              @endif
-            <h1 class="text-uppercase">
-              <strong>Comun.</strong>
-            </h1>
-            <hr class="hr">
-          </div>
-          <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Simples, rápido e prático. Comunique-se</p>
-            <a class="button" id="btinfo" href="#about"><span>Info</span></a> 
-          </div>
-        </div>
+<header class="masthead text-center text-white d-flex" id="main">
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+          @if(isset($_SESSION['mensagem'])) 
+            <?php echo $_SESSION['mensagem']; ?>
+            @unset($_SESSION['mensagem'])
+          @endif
+        <h1 class="text-uppercase">
+          <strong>Comun.</strong>
+        </h1>
+        <hr class="hr">
       </div>
-    </header>
-</div>
+      <div class="col-lg-8 mx-auto">
+        <p class="text-faded mb-5">Simples, rápido e prático. Comunique-se</p>
+        <a class="button" id="btinfo" href="#about"><span>Info</span></a> 
+      </div>
+    </div>
+  </div>
+</header>
 
 <article>
 	<section class="bg-primary" id="about">
