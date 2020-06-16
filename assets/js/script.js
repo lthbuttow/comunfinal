@@ -4,20 +4,20 @@ function atualizar() {
     type: "POST",
     url: "funcs/conversa.php",
     dataType: "html",
-    success: function(html) {
+    success: function (html) {
       $("#lista").html(html);
     },
-    error: function() {
+    error: function () {
       alert("Ocorreu um erro");
-    }
+    },
   });
 
   $("div #lista").scrollTop(9999);
 }
 
-$(function() {
+$(function () {
   // mudança de cor da barra
-  $(window).bind("scroll", function() {
+  $(window).bind("scroll", function () {
     if ($(this).scrollTop() > 70) {
       $("#mainNav").addClass("bg-white");
       $("#mainNav a").css("color", "#F4511E");
@@ -31,45 +31,45 @@ $(function() {
   });
 
   // scroll suave
-  $('a[href^="#"]').on("click", function(e) {
+  $('a[href^="#"]').on("click", function (e) {
     e.preventDefault();
     var id = $(this).attr("href"),
       targetOffset = $(id).offset().top;
 
     $("html, body").animate(
       {
-        scrollTop: targetOffset - 100
+        scrollTop: targetOffset - 100,
       },
       100
     );
   });
 
-  $('nav a[href^="#"]').on("click", function(e) {
+  $('nav a[href^="#"]').on("click", function (e) {
     e.preventDefault();
     var id = $(this).attr("href"),
       targetOffset = $(id).offset().top;
 
     $("html, body").animate(
       {
-        scrollTop: targetOffset - 100
+        scrollTop: targetOffset - 100,
       },
       100
     );
   });
 
   // mudança de cor de fundo do form
-  $("#formulario").bind("mouseover", function() {
+  $("#formulario").bind("mouseover", function () {
     $(this)
       .css("background-color", "#f5f5f5")
       .css("transition", "0.5s all ease-in-out");
   });
 
-  $("#formulario").bind("mouseout", function() {
+  $("#formulario").bind("mouseout", function () {
     $(this).css("background-color", "#FFF");
   });
 
   //requisição ajax envio de e-mail
-  $("#contactForm").bind("submit", function(e) {
+  $("#contactForm").bind("submit", function (e) {
     e.preventDefault();
 
     var form = $("#contactForm");
@@ -78,25 +78,25 @@ $(function() {
       rules: {
         email: {
           required: true,
-          email: true
+          email: true,
         },
         message: {
           required: true,
           minlength: 5,
-          maxlength: 150
-        }
+          maxlength: 150,
+        },
       },
       messages: {
         email: {
           required: "Favor preencher este campo",
-          email: "Favor preencher com um e-mail válido"
+          email: "Favor preencher com um e-mail válido",
         },
         message: {
           required: "Favor preencher este campo",
           minlength: "Digite uma mensagem de no mínimo 5 caracteres",
-          maxlength: "Digite uma mensagem de no máximo 150 caracteres"
-        }
-      }
+          maxlength: "Digite uma mensagem de no máximo 150 caracteres",
+        },
+      },
     });
 
     if (form.valid() == true) {
@@ -108,7 +108,7 @@ $(function() {
         url: "http://localhost:8888/projetocomun/ajax/enviarmensagem",
         data: data,
         dataType: "json",
-        success: function(resultado) {
+        success: function (resultado) {
           if (resultado.status == "OK") {
             $("div #alert").html(
               '<div class="alert alert-primary alert-dismissible fade show" role="alert"><strong>Sucesso! </strong>Sua mensagem foi enviada, retornaremos em breve!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
@@ -121,7 +121,7 @@ $(function() {
               '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Erro! </strong>Não foi possível enviar sua mensagem, pelo menos um campo não foi preenchido!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
             );
           }
-        }
+        },
       });
 
       return false;
@@ -134,7 +134,7 @@ $(function() {
 
   // Validação add_user
 
-  $("#add_user").bind("submit", function(e) {
+  $("#add_user").bind("submit", function (e) {
     e.preventDefault();
 
     var form = $("#add_user");
@@ -143,33 +143,33 @@ $(function() {
       rules: {
         nome: {
           required: true,
-          minWords: 2
+          minWords: 2,
         },
         email: {
           required: true,
-          email: true
+          email: true,
         },
         senha: {
           required: true,
           minlength: 5,
-          maxlength: 15
-        }
+          maxlength: 15,
+        },
       },
       messages: {
         nome: {
           required: "Favor preencher este campo",
-          minWords: "O nome precisa ter no mínimo duas palavras"
+          minWords: "O nome precisa ter no mínimo duas palavras",
         },
         email: {
           required: "Favor preencher este campo",
-          email: "Favor preencher com um e-mail válido"
+          email: "Favor preencher com um e-mail válido",
         },
         senha: {
           required: "Favor preencher este campo",
           minlength: "Digite uma senha de no mínimo 5 caracteres",
-          maxlength: "Digite uma senha de no máximo 20 caracteres"
-        }
-      }
+          maxlength: "Digite uma senha de no máximo 20 caracteres",
+        },
+      },
     });
 
     if (form.valid() == true) {
@@ -180,7 +180,7 @@ $(function() {
         url: "http://localhost:8888/projetocomun/ajax/addUsuario",
         data: data,
         dataType: "json",
-        success: function(resultado) {
+        success: function (resultado) {
           if (resultado.Status == "ok") {
             $("div #alert").html(
               '<div class="alert alert-primary alert-dismissible fade show" role="alert"><strong>Sucesso! </strong>Usuário cadastrado!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
@@ -198,7 +198,7 @@ $(function() {
 
             console.log("deu ruim");
           }
-        }
+        },
       });
 
       return false;
@@ -214,24 +214,24 @@ $(function() {
   $("#form_envia_user").validate({
     rules: {
       arquivo: {
-        required: true
+        required: true,
       },
       comment: {
         required: true,
         minlength: 5,
-        maxlength: 100
-      }
+        maxlength: 100,
+      },
     },
     messages: {
       arquivo: {
-        required: "Você precisa selecionar um arquivo!"
+        required: "Você precisa selecionar um arquivo!",
       },
       comment: {
         required: "Favor preencher este campo",
         minlength: "Digite uma mensagem de no mínimo 5 caracteres",
-        maxlength: "Digite uma mensagem de no máximo 100 caracteres"
-      }
-    }
+        maxlength: "Digite uma mensagem de no máximo 100 caracteres",
+      },
+    },
   });
 
   // Enviar arquivos administrador
@@ -239,24 +239,24 @@ $(function() {
   $("#form_envia_arquivos_user").validate({
     rules: {
       arquivo: {
-        required: true
+        required: true,
       },
       comment: {
         required: true,
         minlength: 5,
-        maxlength: 100
-      }
+        maxlength: 100,
+      },
     },
     messages: {
       arquivo: {
-        required: "Você precisa selecionar um arquivo!"
+        required: "Você precisa selecionar um arquivo!",
       },
       comment: {
         required: "Favor preencher este campo",
         minlength: "Digite uma mensagem de no mínimo 5 caracteres",
-        maxlength: "Digite uma mensagem de no máximo 100 caracteres"
-      }
-    }
+        maxlength: "Digite uma mensagem de no máximo 100 caracteres",
+      },
+    },
   });
 
   // scroll edição de dados user
@@ -264,12 +264,12 @@ $(function() {
   $("#edita").hide();
   $("#envia").hide();
 
-  $("#edita_user").bind("click", function() {
+  $("#edita_user").bind("click", function () {
     $("#envia").hide();
     $("#edita").slideToggle("slow");
   });
 
-  $("#envia_user").bind("click", function() {
+  $("#envia_user").bind("click", function () {
     $("#edita").hide();
     $("#envia").slideToggle("slow");
   });
@@ -278,7 +278,7 @@ $(function() {
   // 	$('#chat').slideToggle('slow');
   // });
   //requisição para mostrar dados do usuário a ser editado
-  $("#edita_user").bind("click", function(e) {
+  $("#edita_user").bind("click", function (e) {
     e.preventDefault();
 
     const id = $("#id_user").val();
@@ -290,7 +290,7 @@ $(function() {
       // 	id_user: id
       // },
       dataType: "json",
-      success: function(resultado) {
+      success: function (resultado) {
         if (resultado.id == id) {
           $("#nome").val(resultado.nome);
           $("#email").val(resultado.email);
@@ -300,7 +300,7 @@ $(function() {
             '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Erro! </strong>Não foi possível encontrar os dados, e tente novamente!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
           );
         }
-      }
+      },
     });
   });
 
@@ -335,7 +335,7 @@ $(function() {
 
   //requisição para eviar os dados do usuário editado(validação)
 
-  $("#form_editar").bind("submit", function(e) {
+  $("#form_editar").bind("submit", function (e) {
     e.preventDefault();
 
     var form = $("#form_editar");
@@ -344,33 +344,33 @@ $(function() {
       rules: {
         nome: {
           required: true,
-          minWords: 2
+          minWords: 2,
         },
         email: {
           required: true,
-          email: true
+          email: true,
         },
         senha: {
           required: true,
           minlength: 5,
-          maxlength: 15
-        }
+          maxlength: 15,
+        },
       },
       messages: {
         nome: {
           required: "Favor preencher este campo",
-          minWords: "O nome precisa ter no mínimo duas palavras"
+          minWords: "O nome precisa ter no mínimo duas palavras",
         },
         email: {
           required: "Favor preencher este campo",
-          email: "Favor preencher com um e-mail válido"
+          email: "Favor preencher com um e-mail válido",
         },
         senha: {
           required: "Favor preencher este campo",
           minlength: "Digite uma senha de no mínimo 5 caracteres",
-          maxlength: "Digite uma senha de no máximo 20 caracteres"
-        }
-      }
+          maxlength: "Digite uma senha de no máximo 20 caracteres",
+        },
+      },
     });
 
     if (form.valid() == true) {
@@ -381,7 +381,7 @@ $(function() {
         url: "http://localhost:8888/projetocomun/ajax/salvarAlteracoesUser",
         data: data,
         dataType: "json",
-        success: function(resultado) {
+        success: function (resultado) {
           if (resultado.Status == "OK") {
             $("#alert").html(
               '<div class="alert alert-primary alert-dismissible fade show" role="alert"><strong>Sucesso! </strong>Salvamos seus dados!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
@@ -391,7 +391,7 @@ $(function() {
               '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Erro! </strong>Não foi possível encontrar os dados, e tente novamente!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
             );
           }
-        }
+        },
       });
 
       return false;
@@ -407,7 +407,7 @@ $(function() {
   if (window.location.pathname == "/projetocomun/chat.php") {
     setInterval("atualizar()", 3000);
   }
-  $("#form-chat").bind("submit", function(e) {
+  $("#form-chat").bind("submit", function (e) {
     e.preventDefault();
 
     var txt = $(this).serialize();
@@ -417,36 +417,45 @@ $(function() {
       type: "POST",
       url: "funcs/add_mensagem.php",
       data: txt,
-      success: function(result) {
+      success: function (result) {
         $("#status").html("tudo funcionando: " + result);
-      }
+      },
     });
 
     $("#mensagem").val("");
   });
 
   //busca de usuarios sem refresh
-  $("#pesquisa").keyup(function() {
+  $("#pesquisa").keyup(function () {
     var pesquisa = $(this).val();
 
     //Verificar se há algo digitado
     if (pesquisa == "") {
       var dados = {
-        palavra: pesquisa
+        palavra: pesquisa,
       };
-      $.post("funcs/busca_users.php", dados, function(retorna) {
-        //Mostra dentro da ul os resultado obtidos
-        $("#content").html(retorna);
-      });
-    }
-    if (pesquisa != "") {
+      $.post(
+        "http://localhost:8888/projetocomun/ajax/buscaUsers",
+        dados,
+        function (retorna) {
+          //Mostra dentro da ul os resultado obtidos
+          $(".pagination").show();
+          $("#content").html(retorna);
+        }
+      );
+    } else if (pesquisa != "") {
       var dados = {
-        palavra: pesquisa
+        palavra: pesquisa,
       };
-      $.post("funcs/busca_users.php", dados, function(retorna) {
-        //Mostra dentro da ul os resultado obtidos
-        $("#content").html(retorna);
-      });
+      $.post(
+        "http://localhost:8888/projetocomun/ajax/buscaUsers",
+        dados,
+        function (retorna) {
+          //Mostra dentro da ul os resultado obtidos
+          $(".pagination").hide();
+          $("#content").html(retorna);
+        }
+      );
     } else {
       $("#content").html("");
     }
@@ -459,13 +468,13 @@ $(function() {
       type: "POST",
       url: "http://localhost:8888/projetocomun/ajax/atualizarStatusMensagens",
       dataType: "json",
-      success: function(resultado) {
+      success: function (resultado) {
         if (resultado.Status == "OK") {
           console.log("Status Atualizado");
         } else {
           console.log("Erro ao atualizar status");
         }
-      }
+      },
     });
   }
 
@@ -508,17 +517,17 @@ function deleteUser(id) {
       type: "POST",
       url: "http://localhost:8888/projetocomun/ajax/delete",
       data: { id: id },
-      success: function() {
+      success: function () {
         linhas = $("#usersList>tbody>tr");
-        e = linhas.filter(function(i, elemento) {
+        e = linhas.filter(function (i, elemento) {
           return elemento.cells[0].textContent == id;
         });
         if (e) {
-          e.fadeOut(400, function() {
+          e.fadeOut(400, function () {
             this.remove();
           });
         }
-      }
+      },
     });
     $("#ExcluirUsuario").modal("hide");
   });

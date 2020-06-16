@@ -171,4 +171,58 @@ class AjaxController extends Controller {
                 echo json_encode($array);
     }
 
+    public function buscaUsers() {
+
+	//Recuperar o valor da palavra
+	$usuario = $_POST['palavra'];
+	$p = $_SESSION['p'];
+	$qt_por_pag = $_SESSION['qt_por_pag'];
+	
+	
+	//Pesquisar no banco de dados nome do curso referente a palavra digitada pelo usuário
+	if($usuario == ''){
+        $result = $this->usuarioDAO->getUsuariosPagination($p,$qt_por_pag);
+        
+		
+		// $result = $result->fetchAll();
+		
+		foreach($result as $user){
+			$html = '
+			<tr>
+            <td scope="row">'.$user['id'].'</td>
+            <td>'.$user['nome'].'</td>
+            <td>'.$user['email'].'</td>
+            <td><a id="edita_adm" href="editarusuario/'.$user['id'].'"><i class="fa-2x far fa-edit hv"></i></a></td>
+            <td><a class="excluir" onclick="deleteUser('.$user['id'].')"><i class="fa-2x far fa-minus-square hv"></i></a></td>
+            <td><a><i class="fa-2x far fa-comment-alt hv"></i></a></td>                   
+            <td><a class="acessa hv" href="arquivosAdmin/'.$user['id'].'"><i class="fa-2x far fa-folder hv"></i></a></td>
+            </tr>';
+			echo $html;
+			}		
+    } 
+        else{
+        $result = $this->usuarioDAO->consultaUsers($usuario);
+        
+        if($result) {
+            
+            foreach($result as $user){
+                $html = '
+                <tr>
+                <td scope="row">'.$user['id'].'</td>
+                <td>'.$user['nome'].'</td>
+                <td>'.$user['email'].'</td>
+                <td><a id="edita_adm" href="editarusuario/'.$user['id'].'"><i class="fa-2x far fa-edit hv"></i></a></td>
+                <td><a class="excluir" onclick="deleteUser('.$user['id'].')"><i class="fa-2x far fa-minus-square hv"></i></a></td>
+                <td><a><i class="fa-2x far fa-comment-alt hv"></i></a></td>                   
+                <td><a class="acessa hv" href="arquivosAdmin/'.$user['id'].'"><i class="fa-2x far fa-folder hv"></i></a></td>
+                </tr>';
+                echo $html;
+                    }
+        } 
+            else {
+            echo "Nenhum usuário encontrado...";
+            }    
+
+        }
+    }
 }
