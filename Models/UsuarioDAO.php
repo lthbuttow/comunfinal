@@ -209,7 +209,20 @@ class UsuarioDAO extends Model {
 		return false;
 		}
 	}
+	public function consultaUsers($user){
+		$sql = "SELECT * FROM usuarios WHERE nome LIKE :user AND admin ='0'";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':user', '%'.$user.'%');
+	
+		if($sql->execute()){
 
+		$result = $sql->fetchAll();
+		
+		return $result;
+	} else{
+		return false;
+		}
+	}
 	// Users pagination
 	public function getUsuariosPagination($p,$qt_por_pag){
 		$sql = "(SELECT * FROM usuarios WHERE admin ='0' LIMIT $qt_por_pag OFFSET $p) ORDER BY id DESC";
