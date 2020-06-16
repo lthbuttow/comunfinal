@@ -434,28 +434,24 @@ $(function () {
       var dados = {
         palavra: pesquisa,
       };
-      $.post(
-        "http://localhost:8888/projetocomun/ajax/buscaUsers",
-        dados,
-        function (retorna) {
-          //Mostra dentro da ul os resultado obtidos
-          $(".pagination").show();
-          $("#content").html(retorna);
-        }
-      );
+      $.post("https://projetocomun.com/ajax/buscaUsers", dados, function (
+        retorna
+      ) {
+        //Mostra dentro da ul os resultado obtidos
+        $(".pagination").show();
+        $("#content").html(retorna);
+      });
     } else if (pesquisa != "") {
       var dados = {
         palavra: pesquisa,
       };
-      $.post(
-        "http://localhost:8888/projetocomun/ajax/buscaUsers",
-        dados,
-        function (retorna) {
-          //Mostra dentro da ul os resultado obtidos
-          $(".pagination").hide();
-          $("#content").html(retorna);
-        }
-      );
+      $.post("https://projetocomun.com/ajax/buscaUsers", dados, function (
+        retorna
+      ) {
+        //Mostra dentro da ul os resultado obtidos
+        $(".pagination").hide();
+        $("#content").html(retorna);
+      });
     } else {
       $("#content").html("");
     }
