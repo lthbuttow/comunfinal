@@ -2,7 +2,7 @@
 function atualizar() {
   $.ajax({
     type: "POST",
-    url: "funcs/conversa.php",
+    url: "http://localhost:8888/projetocomun/ajax/getMessages",
     dataType: "html",
     success: function (html) {
       $("#lista").html(html);
@@ -12,7 +12,7 @@ function atualizar() {
     },
   });
 
-  $("div #lista").scrollTop(9999);
+  $("#lista").animate({ scrollTop: $("#lista")[0].scrollHeight });
 }
 
 $(function () {
@@ -404,18 +404,17 @@ $(function () {
 
   // scroll do chat
   console.log(window.location.pathname);
-  if (window.location.pathname == "/projetocomun/chat.php") {
-    setInterval("atualizar()", 3000);
-  }
+  // if (window.location.pathname == "/projetocomun/chat/conversa") {
+  setInterval("atualizar()", 3000);
+  // }
   $("#form-chat").bind("submit", function (e) {
     e.preventDefault();
 
     var txt = $(this).serialize();
-    console.log(window.location.href);
 
     $.ajax({
       type: "POST",
-      url: "funcs/add_mensagem.php",
+      url: "http://localhost:8888/projetocomun/ajax/sendMessage",
       data: txt,
       success: function (result) {
         $("#status").html("tudo funcionando: " + result);

@@ -6,17 +6,21 @@ use \Models\UsuarioDAO;
 use \Models\Usuario;
 use \Models\Mensagem;
 use \Models\MensagemDAO;
+use \Models\Chat;
+use \Models\ChatDAO;
 
 class AjaxController extends Controller {
 
     private $usuarioDAO;
     private $mensagemDAO;
+    private $chatDAO;
 
 	public function __construct() {
 		parent::__construct();
         $u = new UsuarioDAO();
         $this->usuarioDAO = new UsuarioDAO();
         $this->mensagemDAO = new MensagemDAO();
+        $this->chatDAO = new ChatDAO();
 
     //      if(!$u->isLogged()) {
     //     	header('Location: http://localhost/projetocomun/');
@@ -225,4 +229,52 @@ class AjaxController extends Controller {
 
         }
     }
+
+    public function getMessages() {
+        $id_de = $_SESSION['login'];
+        $id_para = $_SESSION['id_para'];
+
+        
+
+        $resultado = $this->chatDAO->consultaMsg($id_de,$id_para);
+
+            if ($resultado->rowCount() <= 0) {
+                echo "<code>Diga olá!</code>";
+            } else {
+                while ( $row = $resultado->fetch()) {
+            ?>
+
+                <?php
+                if ($row['id_de'] == $id_de) {
+                ?>
+                <div align="right"><p class="chat-i"><?php echo $row['mensagem']; ?></p></div>	
+                <?php
+                }else if ($row['id_de'] == $id_para) {
+                ?>
+                <div align="left"><p class="chat-you"><?php echo $row['mensagem']; ?></p></div>
+                <?php
+                }
+            }
+        }
+    }
+    public function sendMessage() {
+        $id_de = $_SESSION['login'];
+        $id_para = $_SESSION['id_para'];
+
+
+        if (isset($_POST['mensagem']) && !empty($_POST['mensagem'])) {
+		$mensagem = $_POST['mensagem'];
+
+		if (empty($mensagem)) {
+			echo "<code>Digite sua mensagem</code>";
+		} else {
+			$result = $this->chatDAO->addMsg($id_de,$id_para,$mensagem);
+			}
+			if ($result == true) {
+				echo "Mensagem enviada";
+			} else {
+				echo "<code>Erro ao enviar sua mensagem</code>";	
+			}
+		}
+    }                
 }

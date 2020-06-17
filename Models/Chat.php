@@ -6,7 +6,7 @@ namespace Models;
 
 use Core\Model;
 
-class Conversa extends Model {
+class Chat extends Model {
     private $id;
     private $id_de;
     private $id_para;
