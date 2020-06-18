@@ -30,6 +30,8 @@ class AdminController extends Controller {
         $idUser = $_SESSION['login'];
         
         $array['unreadFilesCount'] = $msg->getUnreadCount();
+
+        $_SESSION['unreadFiles'] = $msg->getUnreadCount();
  
 		$this->loadTemplate('adminHome', $array);
     }
@@ -48,6 +50,9 @@ class AdminController extends Controller {
 
     public function listagemUsuarios() {
         $array = array();
+
+        $msg = new ArquivoDAO();    
+        $_SESSION['unreadFiles'] = $msg->getUnreadCount();
 
         $total_users = $this->user->getTotalUsuarios();
         $total_users = $total_users['contagem'];
@@ -104,9 +109,8 @@ class AdminController extends Controller {
         
         $dados['result'] = $result;
 
-        // print_r($id_para);
-
-        // print_r($dados['result']);
+        //setar arquivos como visualizados
+        $arquivo->setAsRead($id_user);
 
         $this->loadTemplate('arquivosAdmin', $dados);
     }

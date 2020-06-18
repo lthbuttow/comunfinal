@@ -41,21 +41,43 @@
 				<a class="nav-link" data-toggle="modal" data-target="#userModal">Área do Cliente</a>
 			</li>                    
 
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="modal" data-target="#adminModal">Administrador</a>
-				</li>
-				<?php
-				}
-				else {
-				?>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="modal" data-target="#adminModal">Administrador</a>
+			</li>
+			<?php
+			}
+			else if ( $_SESSION['admin'] != 'ativo'){
+			?>	
 				<li class="nav-item">
 					<a class="nav-link" href="https://projetocomun.com/login/logout" id="scrollSuave">Logout</a>
 				</li>
-				<?php	
-				} 
-				?>
-				</ul>
-			</div>
+			<?php	
+			}
+			else if ($_SESSION['admin'] == 'ativo'){
+			?>
+
+			<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Opções
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item items-align" href="https://projetocomun.com/admin/notificacoes">Notificações
+						<?php if ( $_SESSION['unreadFiles']) {?>
+							<span class="badge badge-pill badge-secondary"><?php echo $_SESSION['unreadFiles'] ?></span></a>
+						<?php 
+						}
+						?>	
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="https://projetocomun.com/login/logout" id="scrollSuave">Logout</a>
+        </div>
+      </li>
+			<?php	
+			} 
+			
+			?>
+			</ul>
+		</div>
 		</div>
 	</nav>   	
 

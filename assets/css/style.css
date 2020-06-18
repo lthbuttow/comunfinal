@@ -579,3 +579,16 @@ header.mastheadss a {
   color: #f4511e !important;
   transition: all 0.3s;
 }
+
+.items-align {
+  display: flex;
+  align-items: center;
+}
+
+.items-align > span {
+  margin-left: 3px;
+}
+
+.table td {
+  vertical-align: middle !important;
+}
