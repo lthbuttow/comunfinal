@@ -29,7 +29,7 @@ class ArquivoDAO extends Model {
 
     public function getUnreadCount(){
 
-		$sql = $this->db->query("SELECT * FROM usuarios, arquivos WHERE admin ='0'AND usuarios.id = arquivos.id_de");
+		$sql = $this->db->query("SELECT * FROM usuarios, arquivos WHERE admin ='0'AND usuarios.id = arquivos.id_de AND checked = '0'");
 		$sql->execute();
 
 		$resultado = $sql->rowCount();
@@ -92,4 +92,16 @@ class ArquivoDAO extends Model {
             return false;
         }       
     }
+
+    public function setAsRead($id_user){
+        $sql = $this->db->prepare("UPDATE arquivos set checked = '1' WHERE id_de = :id_user");
+        $sql->bindValue(":id_user", $id_user);
+        
+        if($sql->execute()){
+
+            return true;
+        } else{
+            return false;
+        }       
+    }    
 }

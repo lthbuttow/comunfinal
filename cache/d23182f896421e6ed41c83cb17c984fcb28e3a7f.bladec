@@ -25,7 +25,11 @@
  <div class="service-box mt-5 mx-auto">
  <a href="http://localhost:8888/projetocomun/admin/notificacoes"><i class="fas fa-4x fa-envelope text-orange mb-3 sr-icon-4"></i>
  <h4 class="mb-3">Arquivos Recebidos</h4></a>
+ <?php if($unreadFilesCount): ?>
  <p class="text-muted mb-0">Você tem <?php echo static::e($unreadFilesCount); ?> arquivos a serem visualizados</p>
+ <?php else: ?>
+ <p class="text-muted mb-0">Nenhum novo arquivo recebido</p>
+ <?php endif; ?>  
  </div>
  </div>
  </div>
