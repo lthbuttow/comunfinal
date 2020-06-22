@@ -56,7 +56,7 @@ class AdminController extends Controller {
 
         $total_users = $this->user->getTotalUsuarios();
         $total_users = $total_users['contagem'];
-        $qt_por_pag = 6;
+        $qt_por_pag = 10;
         $paginas = $total_users / $qt_por_pag;
         
         $pg = 1;
@@ -221,32 +221,14 @@ class AdminController extends Controller {
         $this->loadTemplate('editaUser', $dados);
 	}
 
-	// public function editUser($id) {
-    //     $dados = array();
-        
-    //     if($id != '') {
-	// 		$u = new Usuario();
-
-	// 		$data = $u->getUser($id);
-
-	// 		if($data != ''){
-    //             $dados['nome'] = $data['name'];
-    //             $dados['senha'] = $data['senha'];
-	// 		}
-
-    //         if(isset($_POST['nome']) && !empty($_POST['senha'])) {
-    //             $newNome = $_POST['nome'];
-    //             $newSenha = $_POST['senha'];
-
-    //             if($u->editarUser($id, $newNome, $newSenha)) {
-    //                 header('Location: http://localhost/mvc_psr4/');
-    //             }
-    //         }
-
-    //     }
+	public function usuariosDesativados() {
+        $array = array();
 
         
-    //     $this->loadTemplate('editUser', $dados);
-	// }
+        $array['listagem'] = $this->user->getUsuariosDesativados();
+     
+
+        $this->loadTemplate('usersDesativados', $array);
+    }
 
 }

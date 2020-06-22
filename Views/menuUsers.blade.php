@@ -52,7 +52,7 @@
                               <td>{{$user['nome']}}</td>
                               <td>{{$user['email']}}</td>
                             <td><a id="edita_adm" href="editarusuario/{{$user['id']}}"><i class="fa-2x far fa-edit hv"></i></a></td>
-                              <td><a class="excluir" onclick="deleteUser({{$user['id']}})"><i class="fa-2x far fa-minus-square hv"></i></a></td>
+                              <td><a class="excluir" onclick="deactivateUser({{$user['id']}})"><i class="fa-2x far fa-minus-square hv"></i></a></td>
                               <td><a href="../chat/conversa/{{$user['id']}}"><i class="fa-2x far fa-comment-alt hv"></i></a></td>                   
                             <td><a class="acessa hv" href="arquivosAdmin/{{$user['id']}}"><i class="fa-2x far fa-folder hv"></i></a></td>
                             </tr>

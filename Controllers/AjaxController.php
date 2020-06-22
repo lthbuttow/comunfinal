@@ -147,6 +147,60 @@ class AjaxController extends Controller {
         }
  
     }
+
+    public function reativarUser() {
+		$array = array();
+
+        if(isset($_POST['id']) && !empty($_POST['id'])) {
+            $id = addslashes($_POST['id']);
+
+            if($this->usuarioDAO->reactivateUser($id)) {
+                $_SESSION['mensagem'] = '<div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>Sucesso!</strong> O usuário foi reativado.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+            }
+            else {
+                $_SESSION['mensagem'] = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Algo deu errado!</strong> Não foi possível reativar o usuário.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+            }
+            
+        }
+ 
+    }
+
+    public function deactivateUser() {
+		$array = array();
+
+        if(isset($_POST['id']) && !empty($_POST['id'])) {
+            $id = addslashes($_POST['id']);
+
+            if($this->usuarioDAO->deactiveUser($id)) {
+                $_SESSION['mensagem'] = '<div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>Sucesso!</strong> O usuário foi desativado.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+            }
+            else {
+                $_SESSION['mensagem'] = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Algo deu errado!</strong> Não foi possível desativar o usuário.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+            }
+            
+        }
+ 
+    }
     
     public function addUsuario() {
         if (!empty($_POST['email']) && !empty($_POST['nome'])) {

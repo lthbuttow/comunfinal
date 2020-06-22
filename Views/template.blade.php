@@ -66,8 +66,9 @@
 							<span class="badge badge-pill badge-secondary"><?php echo $_SESSION['unreadFiles'] ?></span></a>
 						<?php 
 						}
-						?>	
-          <a class="dropdown-item" href="#">Another action</a>
+						?>
+					<a class="dropdown-item" href="https://projetocomun.com/admin/usuariosDesativados">Usuários Desativados</a>		
+          <a class="dropdown-item" href="https://projetocomun.com/log/log.txt" download>Baixar Logs</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="https://projetocomun.com/login/logout" id="scrollSuave">Logout</a>
         </div>
