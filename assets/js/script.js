@@ -505,7 +505,34 @@ $(function () {
   // });
 });
 
-// new
+// desativar usuario
+function deactivateUser(id) {
+  $("#ExcluirUsuario").modal("show");
+
+  let confirmaExclusao = document.querySelector("#confirmaExcluir");
+
+  confirmaExclusao.addEventListener("click", () => {
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8888/projetocomun/ajax/deactivateUser",
+      data: { id: id },
+      success: function () {
+        linhas = $("#usersList>tbody>tr");
+        e = linhas.filter(function (i, elemento) {
+          return elemento.cells[0].textContent == id;
+        });
+        if (e) {
+          e.fadeOut(400, function () {
+            this.remove();
+          });
+        }
+      },
+    });
+    $("#ExcluirUsuario").modal("hide");
+  });
+}
+
+// deletar usuario
 function deleteUser(id) {
   $("#ExcluirUsuario").modal("show");
 
@@ -529,5 +556,32 @@ function deleteUser(id) {
       },
     });
     $("#ExcluirUsuario").modal("hide");
+  });
+}
+
+// Reativar usuario
+function activateUser(id) {
+  $("#ReativarUsuario").modal("show");
+
+  let confirmaExclusao = document.querySelector("#confirmaReativar");
+
+  confirmaExclusao.addEventListener("click", () => {
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8888/projetocomun/ajax/reativarUser",
+      data: { id: id },
+      success: function () {
+        linhas = $("#usersList>tbody>tr");
+        e = linhas.filter(function (i, elemento) {
+          return elemento.cells[0].textContent == id;
+        });
+        if (e) {
+          e.fadeOut(400, function () {
+            this.remove();
+          });
+        }
+      },
+    });
+    $("#ReativarUsuario").modal("hide");
   });
 }

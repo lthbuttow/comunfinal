@@ -128,7 +128,39 @@ class UsuarioDAO extends Model {
 			return false;
 		}	
 
-	}	
+	}
+	
+	public function deactiveUser($id) {
+
+		$sql = "UPDATE usuarios SET active = '1' WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id', $id);
+
+
+		if($sql->execute()){
+
+		return true;
+	} else{
+		return false;
+		}
+
+	}
+
+	public function reactivateUser($id) {
+
+		$sql = "UPDATE usuarios SET active = '0' WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id', $id);
+
+
+		if($sql->execute()){
+
+		return true;
+	} else{
+		return false;
+		}
+
+	}
 
 	public function getAll() {
 		$array = array();
@@ -210,7 +242,7 @@ class UsuarioDAO extends Model {
 		}
 	}
 	public function consultaUsers($user){
-		$sql = "SELECT * FROM usuarios WHERE nome LIKE :user AND admin ='0'";
+		$sql = "SELECT * FROM usuarios WHERE nome LIKE :user AND admin ='0' AND active = '0'";
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(':user', '%'.$user.'%');
 	
@@ -225,7 +257,7 @@ class UsuarioDAO extends Model {
 	}
 	// Users pagination
 	public function getUsuariosPagination($p,$qt_por_pag){
-		$sql = "(SELECT * FROM usuarios WHERE admin ='0' LIMIT $qt_por_pag OFFSET $p) ORDER BY id DESC";
+		$sql = "(SELECT * FROM usuarios WHERE admin ='0' AND active='0' LIMIT $qt_por_pag OFFSET $p) ORDER BY id DESC";
 		$sql = $this->db->query($sql);
 	
 		if($sql){
@@ -264,5 +296,18 @@ class UsuarioDAO extends Model {
 	} else{
 		return false;
 		}
-	}		
+	}
+	
+	public function getUsuariosDesativados(){
+		$sql = "SELECT * FROM usuarios WHERE admin ='0' AND active='1' ORDER BY id DESC";
+		$sql = $this->db->query($sql);
+	
+		if($sql){
+		$result = $sql->fetchAll();
+		
+		return $result;
+	} else{
+		return false;
+		}
+	}	
 }

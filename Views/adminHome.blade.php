@@ -18,7 +18,7 @@
                 // $qtd_arquivos = $arquivo->getStatus();
                 $qtd_arquivos = 3;
               ?>
-              <p class="text-muted mb-0">Atualmente você tem <?php echo $qtd_arquivos; ?> arquivos que ainda não foram visualizados</p>
+              <p class="text-muted mb-0">Visão geral dos usuários do sistema</p>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 text-center">
