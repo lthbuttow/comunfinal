@@ -7,6 +7,8 @@ use \Models\UsuarioDAO;
 use \Models\Arquivo;
 use \Models\ArquivoDAO;
 
+require("log/logs.php");
+
 class UsuarioController extends Controller {
 	
 	public function __construct() {
@@ -49,6 +51,14 @@ class UsuarioController extends Controller {
             
             $nome_arquivo = 'default.jpg';
 
+            //Pega o remetente do arquivo
+            $emailDest = $user->getEmailRemetente($id_de);
+            if($emailDest) {
+                $emailDest = $emailDest['email'];
+            } else {
+                $emailDest = 'undefinedUser';
+            }
+
             if (isset($file['tmp_name']) && !empty($file['tmp_name'])) {
                 
                 $tipo = $file['type'];
@@ -72,10 +82,8 @@ class UsuarioController extends Controller {
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>';
-                        // if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
-                        //     // header("Location: ../caixa_arquivos_admin.php?id_user=$id_para");
-                        //     header("Location: http://localhost:8888/projetocomun/admin/enviaArquivosAdmin/$id_para");
-                        // } 
+                        $texto = $emailDest."enviou o arquivo ".$nome_arquivo." com sucesso para Admin";
+                        logs($texto);
                         }
                     } else{
                         $_SESSION['mensagem'] = '
@@ -84,7 +92,9 @@ class UsuarioController extends Controller {
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        </div>';		
+                        </div>';
+                        $texto = $emailDest." O arquivo ".$file['name']." não foi enviado com sucesso para Admin";
+                        logs($texto);		
                     }
                 
                 }
