@@ -297,6 +297,21 @@ class UsuarioDAO extends Model {
 		return false;
 		}
 	}
+
+	public function getEmailRemetente($id){
+		$sql = "SELECT email FROM usuarios WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id', $id);
+	
+		if($sql->execute()){
+
+		$data = $sql->fetch();
+		
+		return $data;
+	} else{
+		return false;
+		}
+	}
 	
 	public function getUsuariosDesativados(){
 		$sql = "SELECT * FROM usuarios WHERE admin ='0' AND active='1' ORDER BY id DESC";
