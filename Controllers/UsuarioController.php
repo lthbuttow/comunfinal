@@ -109,6 +109,11 @@ class UsuarioController extends Controller {
             </button>
             </div>';
         }
+
+        $_SESSION['unreadFiles'] = $arquivo->getUnreadCountUser($idUser);
+
+        //setar arquivos como visualizados
+        $arquivo->setAsReadUser($idUser);
         
         
  
@@ -140,7 +145,9 @@ class UsuarioController extends Controller {
         $arquivo = new ArquivoDAO();
         $dados['arquivos']= $arquivo->userArquivos($id_para);
 
-        
+        //setar arquivos como visualizados
+        $arquivo->setAsReadUser($idUser);
+
         $this->loadTemplate('arquivosUser', $dados);
 	}
 
