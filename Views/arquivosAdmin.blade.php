@@ -71,7 +71,7 @@
 
                   @for($q=0; $q<$paginas; $q++)
                   
-                  <li class="page-item"><a class="page-link" style="color: #2c3e50;" href="http://localhost:8888/projetocomun/admin/arquivosAdmin?p={{$q+1}}">{{$q+1}}</a></li>
+                  <li class="page-item"><a class="page-link" style="color: #2c3e50;" href="https://projetocomun.com/admin/arquivosAdmin/{{$id_para}}?p={{$q+1}}">{{$q+1}}</a></li>
                   
                   @endfor
                   
