@@ -93,7 +93,7 @@ class AdminController extends Controller {
 
         $total_arquivos = $arquivo->getTotalArquivos($id_user);
         $total_arquivos = $total_arquivos['contagem'];
-        $qt_por_pag = 4;
+        $qt_por_pag = 5;
         $paginas = $total_arquivos / $qt_por_pag;
         $pg = 1;
         if(isset($_GET['p']) && !empty($_GET['p'])){
@@ -169,7 +169,6 @@ class AdminController extends Controller {
                         
                         $texto = "Admin enviou o arquivo ".$nome_arquivo." com sucesso para ".$emailDest;
                         logs($texto);
-                        }
                     } else{
                         $_SESSION['mensagem'] = '
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -185,7 +184,7 @@ class AdminController extends Controller {
                 }
             }
 
-         else{
+        } else{
             $_SESSION['mensagem'] = '
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Olá!</strong> Não esqueça de selecionar algum arquivo!

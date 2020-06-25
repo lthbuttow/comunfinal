@@ -84,31 +84,28 @@ class UsuarioController extends Controller {
                         </div>';
                         $texto = $emailDest."enviou o arquivo ".$nome_arquivo." com sucesso para Admin";
                         logs($texto);
+                        } else{
+                            $_SESSION['mensagem'] = '
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>ERRO!</strong> Não foi possível enviar o arquivo, tente novamente!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>';
+                            $texto = $emailDest." O arquivo ".$file['name']." não foi enviado com sucesso para Admin";
+                            logs($texto);		
                         }
-                    } else{
-                        $_SESSION['mensagem'] = '
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>ERRO!</strong> Não foi possível enviar o arquivo, tente novamente!
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>';
-                        $texto = $emailDest." O arquivo ".$file['name']." não foi enviado com sucesso para Admin";
-                        logs($texto);		
-                    }
                 
                 }
+            } else{
+                $_SESSION['mensagem'] = '
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Olá!</strong> Não esqueça de selecionar algum arquivo!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>';
             }
-
-         else{
-            $_SESSION['mensagem'] = '
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Olá!</strong> Não esqueça de selecionar algum arquivo!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>';
-        }
 
         $_SESSION['unreadFiles'] = $arquivo->getUnreadCountUser($idUser);
 
@@ -116,9 +113,9 @@ class UsuarioController extends Controller {
         $arquivo->setAsReadUser($idUser);
         
         
- 
-		$this->loadTemplate('userHome', $array);
-	}
+        }
+        $this->loadTemplate('userHome', $array);
+    }
 
 	public function addUser() {
         $dados = array();

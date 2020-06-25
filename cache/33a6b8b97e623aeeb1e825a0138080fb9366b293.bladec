@@ -71,7 +71,7 @@
 
  <?php for($q=0; $q<$paginas; $q++): ?>
  
- <li class="page-item"><a class="page-link" style="color: #2c3e50;" href="http://localhost:8888/projetocomun/admin/arquivosAdmin?p=<?php echo static::e($q+1); ?>"><?php echo static::e($q+1); ?></a></li>
+ <li class="page-item"><a class="page-link" style="color: #2c3e50;" href="http://localhost:8888/projetocomun/admin/arquivosAdmin/<?php echo static::e($id_para); ?>?p=<?php echo static::e($q+1); ?>"><?php echo static::e($q+1); ?></a></li>
  
  <?php endfor; ?>
  
