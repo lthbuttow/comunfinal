@@ -152,7 +152,7 @@
             <input type="password" name="senha" class="form-control" id="recipient-pass">
           </div>
           <button type="submit" class="btn btn-primary">Entrar</button>
-          <a href="http://localhost:8888/projetocomun/login/esqueciSenha">Esqueci minha senha</a>
+          <a href="https://www.projetocomun.com/login/esqueciSenha">Esqueci minha senha</a>
         </form>
       </div>
     </div>

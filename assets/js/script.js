@@ -1,21 +1,4 @@
 // atualização chat
-<<<<<<< HEAD
-function atualizar() {
-  $.ajax({
-    type: "POST",
-    url: "https://projetocomun.com/ajax/getMessages",
-    dataType: "html",
-    success: function (html) {
-      $("#lista").html(html);
-    },
-    error: function () {
-      alert("Ocorreu um erro");
-    },
-  });
-
-  $("#lista").animate({ scrollTop: $("#lista")[0].scrollHeight });
-}
-=======
 // function atualizar() {
 //   $.ajax({
 //     type: "POST",
@@ -31,7 +14,6 @@ function atualizar() {
 
 //   $("#lista").animate({ scrollTop: $("#lista")[0].scrollHeight });
 // }
->>>>>>> development
 
 $(function () {
   // mudança de cor da barra
@@ -122,13 +104,8 @@ $(function () {
       console.log(data);
 
       $.ajax({
-<<<<<<< HEAD
-        type: "POST",
-        url: "https://projetocomun.com/ajax/enviarmensagem",
-=======
         type: 'POST',
-        url: 'http://localhost:8888/projetocomun/ajax/enviarmensagem',
->>>>>>> development
+        url: 'https://projetocomun.com/ajax/enviarmensagem',
         data: data,
         dataType: 'json',
         success: function (resultado) {
@@ -199,13 +176,8 @@ $(function () {
       var data = $('#add_user').serializeArray();
 
       $.ajax({
-<<<<<<< HEAD
-        type: "POST",
-        url: "https://projetocomun.com/ajax/addUsuario",
-=======
         type: 'POST',
-        url: 'http://localhost:8888/projetocomun/ajax/addUsuario',
->>>>>>> development
+        url: 'https://projetocomun.com/ajax/addUsuario',
         data: data,
         dataType: 'json',
         success: function (resultado) {
@@ -312,13 +284,8 @@ $(function () {
     const id = $('#id_user').val();
 
     $.ajax({
-<<<<<<< HEAD
-      type: "POST",
-      url: "https://projetocomun.com/ajax/getDadosUser",
-=======
       type: 'POST',
-      url: 'http://localhost:8888/projetocomun/ajax/getDadosUser',
->>>>>>> development
+      url: 'https://projetocomun.com/ajax/getDadosUser',
       // data: {
       // 	id_user: id
       // },
@@ -410,13 +377,8 @@ $(function () {
       var data = $('#form_editar').serializeArray();
 
       $.ajax({
-<<<<<<< HEAD
-        type: "POST",
-        url: "https://projetocomun.com/ajax/salvarAlteracoesUser",
-=======
         type: 'POST',
-        url: 'http://localhost:8888/projetocomun/ajax/salvarAlteracoesUser',
->>>>>>> development
+        url: 'https://projetocomun.com/ajax/salvarAlteracoesUser',
         data: data,
         dataType: 'json',
         success: function (resultado) {
@@ -451,13 +413,8 @@ $(function () {
     var txt = $(this).serialize();
 
     $.ajax({
-<<<<<<< HEAD
-      type: "POST",
-      url: "https://projetocomun.com/ajax/sendMessage",
-=======
       type: 'POST',
-      url: 'http://localhost:8888/projetocomun/ajax/sendMessage',
->>>>>>> development
+      url: 'https://projetocomun.com/ajax/sendMessage',
       data: txt,
       success: function (result) {
         $('#status').html('tudo funcionando: ' + result);
@@ -476,28 +433,8 @@ $(function () {
       var dados = {
         palavra: pesquisa,
       };
-<<<<<<< HEAD
-      $.post("https://projetocomun.com/ajax/buscaUsers", dados, function (
-        retorna
-      ) {
-        //Mostra dentro da ul os resultado obtidos
-        $(".pagination").show();
-        $("#content").html(retorna);
-      });
-    } else if (pesquisa != "") {
-      var dados = {
-        palavra: pesquisa,
-      };
-      $.post("https://projetocomun.com/ajax/buscaUsers", dados, function (
-        retorna
-      ) {
-        //Mostra dentro da ul os resultado obtidos
-        $(".pagination").hide();
-        $("#content").html(retorna);
-      });
-=======
       $.post(
-        'http://localhost:8888/projetocomun/ajax/buscaUsers',
+        'https://projetocomun.com/ajax/buscaUsers',
         dados,
         function (retorna) {
           //Mostra dentro da ul os resultado obtidos
@@ -510,7 +447,7 @@ $(function () {
         palavra: pesquisa,
       };
       $.post(
-        'http://localhost:8888/projetocomun/ajax/buscaUsers',
+        'https://projetocomun.com/ajax/buscaUsers',
         dados,
         function (retorna) {
           //Mostra dentro da ul os resultado obtidos
@@ -518,7 +455,6 @@ $(function () {
           $('#content').html(retorna);
         }
       );
->>>>>>> development
     } else {
       $('#content').html('');
     }
@@ -526,19 +462,11 @@ $(function () {
 
   // função para checar mensagens visualizadas
 
-<<<<<<< HEAD
-  if (window.location.pathname == "/admin/mensagem") {
-    $.ajax({
-      type: "POST",
-      url: "https://projetocomun.com/ajax/atualizarStatusMensagens",
-      dataType: "json",
-=======
-  if (window.location.pathname == '/projetocomun/admin/mensagem') {
+  if (window.location.pathname == '/admin/mensagem') {
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:8888/projetocomun/ajax/atualizarStatusMensagens',
+      url: 'https://projetocomun.com/ajax/atualizarStatusMensagens',
       dataType: 'json',
->>>>>>> development
       success: function (resultado) {
         if (resultado.Status == 'OK') {
           console.log('Status Atualizado');
@@ -585,13 +513,8 @@ function deactivateUser(id) {
 
   confirmaExclusao.addEventListener('click', () => {
     $.ajax({
-<<<<<<< HEAD
-      type: "POST",
-      url: "https://projetocomun.com/ajax/deactivateUser",
-=======
       type: 'POST',
-      url: 'http://localhost:8888/projetocomun/ajax/deactivateUser',
->>>>>>> development
+      url: 'https://projetocomun.com/ajax/deactivateUser',
       data: { id: id },
       success: function () {
         linhas = $('#usersList>tbody>tr');
@@ -617,13 +540,8 @@ function deleteUser(id) {
 
   confirmaExclusao.addEventListener('click', () => {
     $.ajax({
-<<<<<<< HEAD
-      type: "POST",
-      url: "https://projetocomun.com/ajax/delete",
-=======
       type: 'POST',
-      url: 'http://localhost:8888/projetocomun/ajax/delete',
->>>>>>> development
+      url: 'https://projetocomun.com/ajax/delete',
       data: { id: id },
       success: function () {
         linhas = $('#usersList>tbody>tr');
@@ -649,13 +567,8 @@ function activateUser(id) {
 
   confirmaExclusao.addEventListener('click', () => {
     $.ajax({
-<<<<<<< HEAD
-      type: "POST",
-      url: "https://projetocomun.com/ajax/reativarUser",
-=======
       type: 'POST',
-      url: 'http://localhost:8888/projetocomun/ajax/reativarUser',
->>>>>>> development
+      url: 'https://projetocomun.com/ajax/reativarUser',
       data: { id: id },
       success: function () {
         linhas = $('#usersList>tbody>tr');

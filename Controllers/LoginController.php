@@ -119,7 +119,7 @@ class LoginController extends Controller {
           $result = $user->createPassRecoverToken($userId, $token, $expira);
 
           if($result) {
-            $link = 'http://localhost:8888/projetocomun/login/redefinirSenha?token='.$token;
+            $link = 'https://www.projetocomun.com/login/redefinirSenha?token='.$token;
 
             $mail = new PHPMailer(true);
 
