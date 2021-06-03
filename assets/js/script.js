@@ -402,11 +402,6 @@ $(function () {
     }
   });
 
-  // scroll do chat
-  console.log(window.location.pathname);
-  // if (window.location.pathname == "/projetocomun/chat/conversa") {
-  setInterval('atualizar()', 3000);
-  // }
   $('#form-chat').bind('submit', function (e) {
     e.preventDefault();
 

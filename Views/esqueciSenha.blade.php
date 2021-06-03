@@ -14,7 +14,7 @@
 
 				@if($mensagem)
 					<p class="text-muted mb-0 mt-4">{{ $mensagem }}</p>
-					<a href="http://localhost:8888/projetocomun">Voltar para a home</a>
+					<a href="https://www.projetocomun.com">Voltar para a home</a>
 				@endif
 
 				@if($debug)
