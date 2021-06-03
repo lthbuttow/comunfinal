@@ -131,13 +131,14 @@ class LoginController extends Controller {
             $mail->Password = '77BUttow98';
             $mail->setFrom('suporte@projetocomun.com', 'Equipe Comun');
             $mail->addReplyTo('suporte@projetocomun.com', 'Equipe Comun');
-            $mail->addAddress('lkbuttow@gmail.com', 'Receiver Name');
-            $mail->Subject = 'Testing PHPMailer';
-            $mail->Body = 'This is a plain text message body';
+            $mail->addAddress($email, 'Usuário');
+            $mail->Subject = 'Recuperação de Senha';
+            $mail->Body = 'Acesse este link para recuperar sua senha: '.$link;
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
+                $dados['mensagem'] = "Não foi possível prosseguir com a recuperação de senha. Entre em contato conosco via chat!";
             } else {
-                echo 'The email message was sent.';
+                $dados['mensagem'] = "Um e-mail com o link para a recuperação de senha foi enviado. Obrigado!";
             }
 
           } else {
