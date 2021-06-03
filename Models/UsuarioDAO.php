@@ -324,5 +324,35 @@ class UsuarioDAO extends Model {
 	} else{
 		return false;
 		}
+	}
+	
+	public function emailExists($email){
+		$sql = "SELECT * FROM usuarios WHERE email = :email";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":email", $email);
+		$sql->execute();
+	
+		if($sql->rowCount() > 0) { 
+		$sql = $sql->fetch();
+		$id = $sql['id'];
+
+		return $id;
+	} else {
+		return false;
+		}
 	}	
+
+	public function createPassRecoverToken($userId, $token, $expiraEm) {
+		$sql = "INSERT INTO usuarios_token (id_usuario, hash, expirado_em) VALUES (:id_usuario, :hash, :expirado_em)";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":id_usuario", $userId);
+		$sql->bindValue(":hash", $token);
+		$sql->bindValue(":expirado_em", $expiraEm);
+		if($sql->execute()) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
 }
