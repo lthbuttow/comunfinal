@@ -10,6 +10,7 @@
 		}
 	},
 	"require": {
-		"eftec/bladeone": "^3.31"
+		"eftec/bladeone": "^3.31",
+		"phpmailer/phpmailer": "^6.4"
 	}
 }

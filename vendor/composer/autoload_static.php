@@ -11,6 +11,10 @@ class ComposerStaticInit373d959e0d9ba00bdd0bfdb7568f2831
         array (
             'eftec\\bladeone\\' => 15,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'M' => 
         array (
             'Models\\' => 7,
@@ -26,6 +30,10 @@ class ComposerStaticInit373d959e0d9ba00bdd0bfdb7568f2831
         'eftec\\bladeone\\' => 
         array (
             0 => __DIR__ . '/..' . '/eftec/bladeone/lib',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Models\\' => 
         array (
